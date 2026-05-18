@@ -5,6 +5,7 @@
 <title>RB_001 / RUMORE</title>
 
 <style>
+
 body{
 background:#000;
 color:#d7d7d7;
@@ -35,19 +36,28 @@ margin:25px auto;
 border:1px solid #222;
 }
 
+.row{
+display:flex;
+gap:30px;
+justify-content:center;
+align-items:flex-start;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+.card{
+text-align:center;
+}
+
 .iris{
 width:100%;
-max-width:260px;
-display:block;
-margin:25px auto;
+max-width:220px;
 border:1px solid #222;
 }
 
 .video{
 width:100%;
-max-width:360px;
-display:block;
-margin:25px auto;
+max-width:280px;
 border:1px solid #222;
 background:#111;
 }
@@ -60,55 +70,127 @@ text-decoration:none;
 a:hover{
 color:#fff;
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="small">FILE RB_001 / STATO APERTO</div>
+<div class="small">
 
-<h1>RUMORE</h1>
+FILE RB_001 / STATO APERTO
+
+</div>
+
+<h1>
+
+RUMORE
+
+</h1>
 
 <div class="block">
-prima rilevazione<br><br>
-12.05.2026<br>
+
+prima rilevazione
+
+<br><br>
+
+12.05.2026
+
+<br>
+
 Bari
+
 </div>
 
 <div class="block">
-SUPPORTO<br><br>
-manifesto cartaceo A5<br>
+
+SUPPORTO
+
+<br><br>
+
+manifesto cartaceo A5
+
+<br>
+
 stato: installato
+
 </div>
 
-<img src="manifesto.jpeg" class="poster" alt="Manifesto RUMORE">
+<img src="manifesto.jpeg" class="poster">
 
 <div class="block">
-INTERFERENZA_01<br><br>
-soggetto ricorrente rilevato
+
+INTERFERENZA_01
+
+<br><br>
+
+presenza ricorrente rilevata
+
 </div>
 
-<img src="iris.jpeg" class="iris" alt="Interferenza 01">
+<div class="row">
+
+<div class="card">
+
+frame estratto
+
+<br><br>
+
+<img src="iris.jpeg" class="iris">
+
+</div>
+
+<div class="card">
+
+segnale recuperato
+
+<br><br>
 
 <video controls class="video">
+
 <source src="iris.mp4" type="video/mp4">
+
 </video>
 
-<div class="block">
-LOG<br><br>
-22:31 movimento rilevato<br>
-22:47 supporto applicato<br>
-23:02 nodo ancora attivo
+</div>
+
 </div>
 
 <div class="block">
-documentazione parziale disponibile<br>
+
+LOG
+
+<br><br>
+
+22:31 movimento rilevato
+
+<br>
+
+22:47 supporto applicato
+
+<br>
+
+23:02 nodo ancora attivo
+
+</div>
+
+<div class="block">
+
+documentazione parziale disponibile
+
+<br>
+
 coordinate oscurate
+
 </div>
 
 <br><br>
 
-<a href="index.html">← archivio principale</a>
+<a href="index.html">
+
+← archivio principale
+
+</a>
 
 </body>
 </html>
