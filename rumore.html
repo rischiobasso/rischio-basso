@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
 <meta charset="UTF-8">
-
 <title>RB_001 / RUMORE</title>
 
 <style>
-
 body{
 background:#000000;
 color:#d7d7d7;
@@ -38,13 +34,25 @@ margin:25px auto;
 border:1px solid #222222;
 }
 
+.media-table{
+margin:30px auto;
+border-collapse:separate;
+border-spacing:40px 0;
+}
+
+.media-table td{
+width:260px;
+text-align:center;
+vertical-align:top;
+}
+
 .iris{
 width:180px;
 border:1px solid #222222;
 }
 
 .video{
-width:220px;
+width:240px;
 border:1px solid #222222;
 background:#111111;
 }
@@ -57,129 +65,65 @@ text-decoration:none;
 a:hover{
 color:#ffffff;
 }
-
 </style>
-
 </head>
 
 <body>
 
-<div class="small">
+<div class="small">FILE RB_001 / STATO APERTO</div>
 
-FILE RB_001 / STATO APERTO
-
-</div>
-
-<h1>
-
-RUMORE
-
-</h1>
+<h1>RUMORE</h1>
 
 <div class="block">
-
-prima rilevazione
-
-<br><br>
-
-12.05.2026
-
-<br>
-
+prima rilevazione<br><br>
+12.05.2026<br>
 Bari
-
 </div>
 
 <div class="block">
-
-SUPPORTO
-
-<br><br>
-
-manifesto cartaceo A5
-
-<br>
-
+SUPPORTO<br><br>
+manifesto cartaceo A5<br>
 stato: installato
-
 </div>
 
 <img src="manifesto.jpeg" class="poster">
 
 <div class="block">
-
-INTERFERENZA_01
-
-<br><br>
-
+INTERFERENZA_01<br><br>
 presenza ricorrente rilevata
-
 </div>
 
-<div style="display:flex; flex-direction:row; justify-content:center; align-items:flex-start; gap:40px;">
-
-<div style="width:200px; text-align:center;">
-
-frame estratto
-
-<br><br>
-
+<table class="media-table">
+<tr>
+<td>
+frame estratto<br><br>
 <img src="iris.jpeg" class="iris">
+</td>
 
-</div>
-
-<div style="width:240px; text-align:center;">
-
-segnale recuperato
-
-<br><br>
-
+<td>
+segnale recuperato<br><br>
 <video controls class="video">
-
 <source src="iris.mp4" type="video/mp4">
-
 </video>
-
-</div>
-
-</div>
+</td>
+</tr>
+</table>
 
 <div class="block">
-
-LOG
-
-<br><br>
-
-22:31 movimento rilevato
-
-<br>
-
-22:47 supporto applicato
-
-<br>
-
+LOG<br><br>
+22:31 movimento rilevato<br>
+22:47 supporto applicato<br>
 23:02 nodo ancora attivo
-
 </div>
 
 <div class="block">
-
-documentazione parziale disponibile
-
-<br>
-
+documentazione parziale disponibile<br>
 coordinate oscurate
-
 </div>
 
 <br><br>
 
-<a href="index.html">
-
-← archivio principale
-
-</a>
+<a href="index.html">← archivio principale</a>
 
 </body>
-
 </html>
