@@ -4,149 +4,78 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>RISCHIO BASSO</title>
 
 <style>
 
 body{
-
-margin:0;
-padding:0;
-background:#050505;
-color:#e5e5e5;
-font-family:monospace;
-letter-spacing:1px;
-
-}
-
-main{
-
-min-height:100vh;
-padding:40px;
-
+background:#000000;
+color:#d7d7d7;
+font-family:"Courier New", monospace;
+max-width:1100px;
+margin:auto;
+padding:60px 30px;
+line-height:1.8;
 }
 
 h1{
+font-size:72px;
+letter-spacing:10px;
+margin-top:10px;
+margin-bottom:10px;
+}
 
-font-size:28px;
-font-weight:400;
-letter-spacing:6px;
+.small{
+font-size:12px;
+color:#666666;
+letter-spacing:3px;
+}
 
+.block{
+margin-top:60px;
+padding:20px;
+border-top:1px solid #222222;
+background:#050505;
+}
+
+.status{
+color:#888888;
+font-size:13px;
+}
+
+.rumore-row{
+display:flex;
+align-items:flex-end;
+justify-content:space-between;
+gap:40px;
+}
+
+.rumore-text{
+width:300px;
+flex-shrink:0;
+}
+
+.rumore-map{
+width:520px;
+border:1px solid #222222;
+display:block;
+}
+
+.thumb{
+width:140px;
+border:1px solid #222222;
+margin-top:20px;
+display:block;
 }
 
 a{
-
-color:#e5e5e5;
+color:#d7d7d7;
 text-decoration:none;
-
 }
 
 a:hover{
-
-text-decoration:line-through;
-
-}
-
-/* IRIS SIGNAL */
-
-#iris-signal{
-
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000;
-opacity:0;
-pointer-events:none;
-z-index:99999;
-overflow:hidden;
-transition:opacity .15s ease;
-
-}
-
-#iris-signal.active{
-
-opacity:.92;
-
-}
-
-#iris-image{
-
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:70%;
-max-width:900px;
-opacity:.82;
-filter:contrast(1.25) brightness(.95) blur(.4px) grayscale(.1);
-animation:irisShake .12s infinite;
-
-}
-
-#iris-message{
-
-position:absolute;
-left:7%;
-bottom:9%;
-font-family:monospace;
-font-size:14px;
-letter-spacing:3px;
-line-height:1.8;
-color:white;
-text-transform:uppercase;
-opacity:.9;
-
-}
-
-.crt-lines{
-
-position:absolute;
-width:100%;
-height:100%;
-background:
-repeating-linear-gradient(
-0deg,
-transparent 0px,
-transparent 2px,
-rgba(255,255,255,.03) 3px,
-rgba(255,255,255,.02) 4px
-);
-
-}
-
-.noise{
-
-position:absolute;
-width:100%;
-height:100%;
-background-image:
-radial-gradient(
-rgba(255,255,255,.04) 1px,
-transparent 1px
-);
-background-size:4px 4px;
-opacity:.25;
-
-}
-
-@keyframes irisShake{
-
-0%{
-transform:translate(-50%,-50%) translateX(0);
-}
-
-50%{
-transform:translate(-50%,-50%) translateX(1px);
-}
-
-100%{
-transform:translate(-50%,-50%) translateX(-1px);
-}
-
+color:#ffffff;
 }
 
 </style>
@@ -155,98 +84,156 @@ transform:translate(-50%,-50%) translateX(-1px);
 
 <body>
 
-<main>
+<div class="small">
 
-<h1>RISCHIO BASSO</h1>
+ARCHIVIO CLANDESTINO / NODO ATTIVO
 
-<p>ARCHIVIO ONLINE</p>
-<p>NODO ATTIVO // BARI</p>
-<p>WAIT FOR NEW SIGNAL</p>
+</div>
 
-<nav>
-<p><a href="dossier.html">DOSSIER</a></p>
-<p><a href="soggetto1.html">SOGGETTO 01</a></p>
-<p><a href="coordinate.html">COORDINATE</a></p>
-</nav>
+<h1>
 
-</main>
+RISCHIO BASSO
 
-<!-- IRIS SIGNAL -->
+</h1>
 
-<div id="iris-signal">
+<p>
 
-<div class="crt-lines"></div>
-<div class="noise"></div>
+interventi registrati
 
-<img
-src="iriscrt.jpeg"
-id="iris-image"
-alt="IRIS">
+</p>
 
-<div id="iris-message">
-WAIT FOR NEW SIGNAL
+<div class="block">
+
+<div class="rumore-row">
+
+<div class="rumore-text">
+
+<a href="rumore.html">
+
+RB_001 / RUMORE
+
+</a>
+
+<p class="status">
+
+Bari / maggio 2026
+
+<br><br>
+
+prima evidenza caricata
+
+<br><br>
+
+anteprima dossier
+
+</p>
+
+<a href="rumore.html">
+
+<img src="manifesto.jpeg" class="thumb">
+
+</a>
+
+</div>
+
+<img src="bari_map.png" class="rumore-map">
+
 </div>
 
 </div>
 
-<script>
+<div class="block">
 
-const irisSignal =
-document.getElementById("iris-signal");
+<a href="aftermidnight.html">
 
-const irisMessage =
-document.getElementById("iris-message");
+RB_002 / AFTER MIDNIGHT
 
-const messages = [
+</a>
 
-"WAIT FOR NEW SIGNAL",
-"ARCHIVE ONLINE",
-"NODE ACTIVE",
-"SIGNAL LOST",
-"TRANSMISSION DETECTED",
-"INTERFERENCE FOUND",
-"LOW RISK"
+<p class="status">
 
-];
+stato: aperto
 
-function triggerIris(){
+<br><br>
 
-let randomMessage =
-messages[
-Math.floor(
-Math.random() * messages.length
-)
-];
+video recuperato
 
-irisMessage.innerHTML =
-"HI EVERYBODY<br>" +
-"THIS IS IRIS<br>" +
-randomMessage;
+<br><br>
 
-irisSignal.classList.add("active");
+autore non identificato
 
-setTimeout(()=>{
+</p>
 
-irisSignal.classList.remove("active");
+</div>
 
-},700);
+<div class="block">
 
-let nextTime =
-Math.random() * 25000 + 20000;
+<a href="iris.html">
 
-setTimeout(
-triggerIris,
-nextTime
-);
+DOSSIER / IRIS ADIRA
 
-}
+</a>
 
-setTimeout(
-triggerIris,
-30000
-);
+<p class="status">
 
-</script>
+soggetto ricorrente
+
+<br><br>
+
+presenza digitale verificata
+
+<br><br>
+
+stato: attivo
+
+</p>
+
+</div>
+
+<div class="block">
+
+<a href="soggetto1.html">
+
+AVVISTAMENTO_01 / SOGGETTO 01
+
+</a>
+
+<p class="status">
+
+stato: osservazione aperta
+
+<br><br>
+
+identità non verificata
+
+<br><br>
+
+coordinate associate: Bari
+
+</p>
+
+</div>
+
+<div class="block">
+
+CANALE ESTERNO
+
+<p class="status">
+
+attività in corso
+
+<br><br>
+
+<a href="https://instagram.com/rischio_basso"
+target="_blank">
+
+instagram / nodo esterno
+
+</a>
+
+</p>
+
+</div>
 
 </body>
 
