@@ -25,44 +25,77 @@ letter-spacing:10px;
 margin-top:10px;
 margin-bottom:10px;
 position:relative;
-animation:glitch 7s infinite;
+display:inline-block;
+animation:glitch 8s infinite;
+}
+
+h1::before,
+h1::after{
+content:attr(data-text);
+position:absolute;
+left:0;
+top:0;
+opacity:0;
+}
+
+h1::before{
+color:#444444;
+animation:layer1 8s infinite;
+}
+
+h1::after{
+color:#888888;
+animation:layer2 8s infinite;
 }
 
 @keyframes glitch{
-
-0%{
+0%,92%,100%{
 transform:none;
-opacity:1;
 }
 
-2%{
+93%{
 transform:translate(-2px,0);
 }
 
-3%{
+94%{
 transform:translate(2px,0);
 }
 
-4%{
+95%{
+transform:none;
+}
+}
+
+@keyframes layer1{
+0%,92%,100%{
+opacity:0;
 transform:none;
 }
 
-50%{
+93%{
+opacity:.8;
+transform:translate(-4px,0);
+}
+
+94%{
+opacity:0;
+}
+}
+
+@keyframes layer2{
+0%,92%,100%{
+opacity:0;
 transform:none;
 }
 
-51%{
-opacity:.9;
+94%{
+opacity:.6;
+transform:translate(4px,0);
 }
 
-52%{
-opacity:1;
+95%{
+opacity:0;
 }
-
-100%{
-transform:none;
-}
-
 }
 
 .signal{
@@ -74,7 +107,6 @@ margin-bottom:20px;
 }
 
 @keyframes flicker{
-
 0%,100%{
 opacity:1;
 }
@@ -90,7 +122,6 @@ opacity:.2;
 50%{
 opacity:1;
 }
-
 }
 
 .small{
@@ -157,7 +188,7 @@ ARCHIVIO CLANDESTINO / NODO ATTIVO
 
 </div>
 
-<h1>
+<h1 data-text="RISCHIO BASSO_">
 
 RISCHIO BASSO_
 
@@ -297,8 +328,7 @@ attività in corso
 
 <br><br>
 
-<a href="https://instagram.com/rischio_basso"
-target="_blank">
+<a href="https://instagram.com/rischio_basso" target="_blank">
 
 instagram / nodo esterno
 
