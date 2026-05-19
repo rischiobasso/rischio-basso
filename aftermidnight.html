@@ -44,11 +44,12 @@ color:#666666;
 letter-spacing:2px;
 }
 
-video{
+.video{
 width:420px;
 border:1px solid #222222;
 display:block;
 margin:30px auto;
+background:#111111;
 }
 
 a{
@@ -96,9 +97,11 @@ durata: 00:08
 
 </div>
 
-<video controls>
+<video controls preload="metadata" class="video">
 
-<source src="aftermidnight.mp4" type="video/mp4">
+<source src="./aftermidnight.mp4" type="video/mp4">
+
+Il browser non supporta il video.
 
 </video>
 
