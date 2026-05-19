@@ -32,11 +32,27 @@ margin-top:10px;
 margin-bottom:30px;
 }
 
+.media-table{
+margin:35px auto;
+border-collapse:separate;
+border-spacing:40px 0;
+}
+
+.media-table td{
+width:280px;
+text-align:center;
+vertical-align:top;
+}
+
 .photo{
 width:260px;
 border:1px solid #222222;
-display:block;
-margin:30px auto;
+}
+
+.video{
+width:260px;
+border:1px solid #222222;
+background:#111111;
 }
 
 .block{
@@ -78,7 +94,39 @@ SOGGETTO 01
 
 </h1>
 
+<table class="media-table">
+
+<tr>
+
+<td>
+
+frame estratto
+
+<br><br>
+
 <img src="soggetto1.jpeg" class="photo">
+
+</td>
+
+<td>
+
+segnale video
+
+<br><br>
+
+<video controls preload="metadata" class="video">
+
+<source src="soggetto1.mp4" type="video/mp4">
+
+Il browser non supporta il video.
+
+</video>
+
+</td>
+
+</tr>
+
+</table>
 
 <div class="block">
 
