@@ -24,6 +24,73 @@ font-size:72px;
 letter-spacing:10px;
 margin-top:10px;
 margin-bottom:10px;
+position:relative;
+animation:glitch 7s infinite;
+}
+
+@keyframes glitch{
+
+0%{
+transform:none;
+opacity:1;
+}
+
+2%{
+transform:translate(-2px,0);
+}
+
+3%{
+transform:translate(2px,0);
+}
+
+4%{
+transform:none;
+}
+
+50%{
+transform:none;
+}
+
+51%{
+opacity:.9;
+}
+
+52%{
+opacity:1;
+}
+
+100%{
+transform:none;
+}
+
+}
+
+.signal{
+font-size:10px;
+color:#444444;
+letter-spacing:4px;
+animation:flicker 5s infinite;
+margin-bottom:20px;
+}
+
+@keyframes flicker{
+
+0%,100%{
+opacity:1;
+}
+
+48%{
+opacity:1;
+}
+
+49%{
+opacity:.2;
+}
+
+50%{
+opacity:1;
+}
+
 }
 
 .small{
@@ -92,9 +159,15 @@ ARCHIVIO CLANDESTINO / NODO ATTIVO
 
 <h1>
 
-RISCHIO BASSO
+RISCHIO BASSO_
 
 </h1>
+
+<div class="signal">
+
+SIGNAL / STABLE
+
+</div>
 
 <p>
 
