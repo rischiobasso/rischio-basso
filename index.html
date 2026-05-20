@@ -1,24 +1,14 @@
-<div class="block">
-
-<a href="runner.html">AVVISTAMENTO_03 / RUNNER</a>
-
-<p class="status">
-registrazione casuale<br><br>
-lungomare Bari<br><br>
-figura in corsa rilevata<br><br>
-supporto associato:<br>
-sirena / mare<br><br>
-dossier collegato disponibile
-</p>
-
-</div><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 
 <head>
+
 <meta charset="UTF-8">
+
 <title>RISCHIO BASSO</title>
 
 <style>
+
 body{
 background:#000;
 color:#d7d7d7;
@@ -29,6 +19,8 @@ padding:60px 30px;
 line-height:1.8;
 overflow-x:hidden;
 }
+
+/* GLITCH IRIS */
 
 .iris-glitch{
 position:fixed;
@@ -46,13 +38,33 @@ animation:irisglitch 6s infinite steps(1,end);
 }
 
 @keyframes irisglitch{
-0%,75%,100%{opacity:0;}
-76%{opacity:1;}
-76.15%{opacity:0;}
-76.3%{opacity:1;}
-76.45%{opacity:0;}
-76.6%{opacity:.8;}
-76.8%{opacity:0;}
+0%,75%,100%{
+opacity:0;
+}
+
+76%{
+opacity:1;
+}
+
+76.15%{
+opacity:0;
+}
+
+76.3%{
+opacity:1;
+}
+
+76.45%{
+opacity:0;
+}
+
+76.6%{
+opacity:.8;
+}
+
+76.8%{
+opacity:0;
+}
 }
 
 .small{
@@ -114,37 +126,19 @@ gap:40px;
 
 .rumore-text{
 width:300px;
+flex-shrink:0;
 }
 
 .rumore-map{
 width:520px;
 border:1px solid #222;
+display:block;
 }
 
 .thumb{
 width:140px;
 border:1px solid #222;
 margin-top:20px;
-display:block;
-}
-
-.runner-video{
-width:100%;
-margin-top:20px;
-border:1px solid #222;
-}
-
-.frame-label{
-font-size:11px;
-letter-spacing:3px;
-color:#666;
-margin-top:25px;
-margin-bottom:10px;
-}
-
-.runner-poster{
-width:220px;
-border:1px solid #222;
 display:block;
 }
 
@@ -163,8 +157,9 @@ text-decoration:none;
 }
 
 a:hover{
-color:#fff;
+color:#ffffff;
 }
+
 </style>
 
 </head>
@@ -172,39 +167,68 @@ color:#fff;
 <body>
 
 <div class="iris-glitch"></div>
+
 <audio id="crt">
-
-<source src="crt_noise.mp3"
-type="audio/mpeg">
-
+<source src="crt_noise.mp3" type="audio/mpeg">
 </audio>
-<div class="small">ARCHIVIO CLANDESTINO / NODO ATTIVO</div>
 
-<div class="node-status">
-NODO: ATTIVO<br>
-ULTIMO LOG: 20.05.2026
+<div class="small">
+
+ARCHIVIO CLANDESTINO / NODO ATTIVO
+
 </div>
 
-<h1>RISCHIO BASSO</h1>
+<div class="node-status">
 
-<div class="signal">SIGNAL / UNSTABLE</div>
+NODO: ATTIVO<br>
+ULTIMO LOG: 20.05.2026
 
-<p>interventi registrati</p>
+</div>
+
+<h1>
+
+RISCHIO BASSO
+
+</h1>
+
+<div class="signal">
+
+SIGNAL / UNSTABLE
+
+</div>
+
+<p>
+
+interventi registrati
+
+</p>
 
 <div class="block">
+
 <div class="rumore-row">
 
 <div class="rumore-text">
 
-<a href="rumore.html">RB_001 / RUMORE</a>
+<a href="rumore.html">
+
+RB_001 / RUMORE
+
+</a>
 
 <p class="status">
-Bari / maggio 2026<br><br>
+
+Bari / maggio 2026
+
+<br><br>
+
 prima evidenza caricata
+
 </p>
 
 <a href="rumore.html">
+
 <img src="manifesto.jpeg" class="thumb">
+
 </a>
 
 </div>
@@ -212,106 +236,134 @@ prima evidenza caricata
 <img src="bari_map.png" class="rumore-map">
 
 </div>
+
 </div>
 
 <div class="block">
 
-<a href="aftermidnight.html">RB_002 / AFTER MIDNIGHT</a>
+<a href="aftermidnight.html">
+
+RB_002 / AFTER MIDNIGHT
+
+</a>
 
 <p class="status">
+
 stato: aperto
+
 </p>
 
 </div>
 
 <div class="block">
 
-<a href="iris.html">DOSSIER / IRIS ADIRA</a>
+<a href="iris.html">
+
+DOSSIER / IRIS ADIRA
+
+</a>
 
 <p class="status">
+
 stato: attivo
+
 </p>
 
 </div>
 
 <div class="block">
 
-<a href="soggetto1.html">AVVISTAMENTO_01 / SOGGETTO 01</a>
+<a href="soggetto1.html">
+
+AVVISTAMENTO_01 / SOGGETTO 01
+
+</a>
 
 <p class="status">
+
 osservazione aperta
+
 </p>
 
 </div>
 
 <div class="missing-file">
-ARCHIVIO INCOMPLETO<br>
+
+ARCHIVIO INCOMPLETO
+
+<br>
+
 AVVISTAMENTO_02 / NON DISPONIBILE
+
 </div>
 
 <div class="block">
 
-<a href="runner.html">AVVISTAMENTO_03 / RUNNER</a>
+<a href="runner.html">
+
+AVVISTAMENTO_03 / RUNNER
+
+</a>
 
 <p class="status">
-registrazione casuale<br><br>
-lungomare Bari<br><br>
-figura in corsa rilevata<br><br>
-supporto associato:<br>
-sirena / mare<br><br>
+
+registrazione casuale
+
+<br><br>
+
+lungomare Bari
+
+<br><br>
+
+figura in corsa rilevata
+
+<br><br>
+
+supporto associato:
+
+<br>
+
+sirena / mare
+
+<br><br>
+
 dossier collegato disponibile
+
 </p>
 
 </div>
+
+<div class="block">
+
 CANALE ESTERNO
 
 <p class="status">
-attività in corso<br><br>
+
+attività in corso
+
+<br><br>
 
 <a href="https://instagram.com/rischio_basso" target="_blank">
+
 ig / nodo esterno
+
 </a>
+
 </p>
 
 </div>
-<script>
 
-window.addEventListener(
-"load",
-()=>{
-
-setTimeout(()=>{
-
-let a=
-document.getElementById(
-"crt"
-);
-
-a.volume=0.04;
-
-a.play();
-
-},8000);
-
-}
-);
-
-</script>
 <script>
 
 let crtPlayed=false;
 
-document.addEventListener(
-"click",
-()=>{
+document.addEventListener("click",()=>{
 
-if(crtPlayed)
+if(crtPlayed){
 return;
+}
 
-let a=
-document.getElementById(
-"crt"
-);
+let a=document.getElementById("crt");
 
 a.volume=0.08;
 
@@ -319,9 +371,10 @@ a.play();
 
 crtPlayed=true;
 
-}
-);
+});
 
 </script>
+
 </body>
+
 </html>
