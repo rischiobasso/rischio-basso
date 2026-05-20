@@ -297,5 +297,31 @@ a.play();
 );
 
 </script>
+<script>
+
+let crtPlayed=false;
+
+document.addEventListener(
+"click",
+()=>{
+
+if(crtPlayed)
+return;
+
+let a=
+document.getElementById(
+"crt"
+);
+
+a.volume=0.08;
+
+a.play();
+
+crtPlayed=true;
+
+}
+);
+
+</script>
 </body>
 </html>
