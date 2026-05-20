@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<div class="block">
+
+<a href="runner.html">AVVISTAMENTO_03 / RUNNER</a>
+
+<p class="status">
+registrazione casuale<br><br>
+lungomare Bari<br><br>
+figura in corsa rilevata<br><br>
+supporto associato:<br>
+sirena / mare<br><br>
+dossier collegato disponibile
+</p>
+
+</div><!DOCTYPE html>
 <html lang="it">
 
 <head>
@@ -159,7 +172,12 @@ color:#fff;
 <body>
 
 <div class="iris-glitch"></div>
+<audio id="crt">
 
+<source src="crt_noise.mp3"
+type="audio/mpeg">
+
+</audio>
 <div class="small">ARCHIVIO CLANDESTINO / NODO ATTIVO</div>
 
 <div class="node-status">
@@ -256,6 +274,28 @@ ig / nodo esterno
 </p>
 
 </div>
+<script>
 
+window.addEventListener(
+"load",
+()=>{
+
+setTimeout(()=>{
+
+let a=
+document.getElementById(
+"crt"
+);
+
+a.volume=0.04;
+
+a.play();
+
+},8000);
+
+}
+);
+
+</script>
 </body>
 </html>
