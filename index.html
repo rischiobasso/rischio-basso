@@ -62,11 +62,29 @@ letter-spacing:4px;
 margin-bottom:20px;
 }
 
+.node-status{
+position:absolute;
+top:70px;
+right:50px;
+font-size:11px;
+letter-spacing:3px;
+color:#555;
+text-align:right;
+}
+
 .block{
 margin-top:60px;
 padding:20px;
 border-top:1px solid #222;
 background:#050505;
+transition:.25s ease;
+position:relative;
+}
+
+.block:hover{
+background:#0b0b0b;
+border-top:1px solid #444;
+transform:translateX(4px);
 }
 
 .status{
@@ -117,6 +135,15 @@ border:1px solid #222;
 display:block;
 }
 
+.missing-file{
+margin-top:60px;
+font-size:10px;
+letter-spacing:4px;
+color:#444;
+border-top:1px dashed #222;
+padding-top:20px;
+}
+
 a{
 color:#d7d7d7;
 text-decoration:none;
@@ -134,6 +161,11 @@ color:#fff;
 <div class="iris-glitch"></div>
 
 <div class="small">ARCHIVIO CLANDESTINO / NODO ATTIVO</div>
+
+<div class="node-status">
+NODO: ATTIVO<br>
+ULTIMO LOG: 20.05.2026
+</div>
 
 <h1>RISCHIO BASSO</h1>
 
@@ -192,6 +224,11 @@ stato: attivo
 osservazione aperta
 </p>
 
+</div>
+
+<div class="missing-file">
+ARCHIVIO INCOMPLETO<br>
+AVVISTAMENTO_02 / NON DISPONIBILE
 </div>
 
 <div class="block">
