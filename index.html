@@ -3,34 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>RISCHIO BASSO // ARCHIVIO</title>
+<title>RISCHIO BASSO</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
   background:#050505;
-  color:#d6d6d6;
-  font-family:"Courier New", monospace;
+  color:#d8d8d8;
+  font-family:"Courier New",monospace;
   overflow-x:hidden;
 }
 
-body::before{
+body:before{
   content:"";
   position:fixed;
   inset:0;
-  background:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+  background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
   background-size:100% 4px;
   pointer-events:none;
   z-index:50;
 }
 
-body::after{
-  content:"";
+.glitch{
   position:fixed;
   inset:0;
   background:url("iriscrt.jpeg") center/cover no-repeat;
@@ -38,183 +34,139 @@ body::after{
   pointer-events:none;
   mix-blend-mode:screen;
   z-index:60;
-  animation:irisGlitch 12s infinite;
+  animation:glitch 10s infinite;
 }
 
-@keyframes irisGlitch{
-  0%,88%,100%{opacity:0; transform:translateX(0);}
-  89%{opacity:.10; transform:translateX(-8px);}
-  90%{opacity:.28; transform:translateX(7px);}
-  91%{opacity:.12; transform:translateX(-3px);}
-  92%{opacity:0; transform:translateX(0);}
+@keyframes glitch{
+  0%,88%,100%{opacity:0;transform:translateX(0)}
+  89%{opacity:.12;transform:translateX(-8px)}
+  90%{opacity:.25;transform:translateX(7px)}
+  91%{opacity:.08;transform:translateX(-3px)}
+  92%{opacity:0}
 }
 
-a{
-  color:#d6d6d6;
-  text-decoration:none;
-}
-
-a:hover{
-  color:#ffffff;
-}
+a{color:#d8d8d8;text-decoration:none}
+a:hover{color:white}
 
 .topbar{
   height:34px;
+  padding:0 34px;
   border-bottom:1px solid #222;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  padding:0 34px;
+  align-items:center;
   font-size:12px;
-  color:#aaa;
-  letter-spacing:1px;
-}
-
-.green{
-  color:#8ccf91;
-}
-
-.red{
-  color:#d64a3d;
+  color:#999;
 }
 
 header{
-  min-height:104px;
+  padding:28px 44px;
   border-bottom:1px solid #222;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  padding:28px 44px;
+  align-items:center;
+  background:#050505;
   position:relative;
   z-index:100;
-  background:#050505;
 }
 
 .logo{
   font-size:31px;
   line-height:.95;
-  letter-spacing:3px;
+  letter-spacing:4px;
   font-weight:bold;
 }
 
-.desktop-nav{
+nav{
   display:flex;
-  gap:30px;
-  align-items:center;
+  gap:18px;
 }
 
-.dropdown{
+details{
   position:relative;
 }
 
-.dropbtn{
-  background:#070707;
-  color:#d6d6d6;
-  border:1px solid #333;
-  font-family:inherit;
-  font-size:14px;
-  letter-spacing:1px;
-  padding:13px 18px;
+summary{
+  list-style:none;
   cursor:pointer;
+  border:1px solid #333;
+  background:#080808;
+  padding:13px 18px;
+  font-size:14px;
+  color:#d8d8d8;
 }
 
-.dropbtn:hover{
+summary::-webkit-details-marker{display:none}
+
+details[open] summary{
   background:#111;
 }
 
-.dropdown-menu{
-  display:none;
+.dropdown{
   position:absolute;
   top:48px;
   left:0;
   min-width:230px;
   background:#080808;
   border:1px solid #333;
-  z-index:200;
-  box-shadow:0 15px 35px rgba(0,0,0,.6);
+  box-shadow:0 20px 40px rgba(0,0,0,.7);
+  z-index:300;
 }
 
-.dropdown-menu.open{
-  display:block;
-}
-
-.dropdown-menu a,
-.dropdown-menu button{
+.dropdown a,
+.dropdown button{
   display:block;
   width:100%;
   padding:14px 16px;
   border:0;
-  border-bottom:1px solid #1b1b1b;
-  background:none;
-  color:#cfcfcf;
+  border-bottom:1px solid #1d1d1d;
+  background:#080808;
+  color:#d8d8d8;
   font-family:inherit;
   font-size:13px;
   text-align:left;
   cursor:pointer;
 }
 
-.dropdown-menu a:hover,
-.dropdown-menu button:hover{
+.dropdown a:hover,
+.dropdown button:hover{
   background:#151515;
-  color:#fff;
 }
 
-.signal{
-  border:1px solid #333;
-  padding:13px 18px;
-  letter-spacing:1px;
-  font-size:14px;
-}
-
-.mobile-toggle{
+.mobile-button{
   display:none;
-  background:#070707;
-  color:#d6d6d6;
   border:1px solid #333;
+  background:#080808;
+  color:#d8d8d8;
   font-family:inherit;
   padding:13px 18px;
-  cursor:pointer;
 }
 
 .mobile-menu{
   display:none;
+  padding:20px 24px;
   background:#070707;
   border-bottom:1px solid #222;
-  padding:18px 24px;
   position:relative;
   z-index:90;
 }
 
-.mobile-menu.open{
-  display:block;
-}
-
-.mobile-section{
-  border-bottom:1px solid #222;
-  padding:14px 0;
-}
-
-.mobile-section-title{
-  color:#999;
-  font-size:12px;
-  margin-bottom:10px;
-}
+.mobile-menu.open{display:block}
 
 .mobile-menu a,
 .mobile-menu button{
   display:block;
   width:100%;
-  background:none;
+  padding:12px 0;
   border:0;
-  color:#d6d6d6;
+  background:none;
+  color:#d8d8d8;
   font-family:inherit;
   text-align:left;
-  padding:10px 0;
-  font-size:14px;
 }
 
 main{
-  padding:64px 54px 44px;
+  padding:64px 54px;
 }
 
 .hero{
@@ -225,10 +177,10 @@ main{
 }
 
 .kicker{
-  font-size:13px;
-  letter-spacing:1.5px;
   color:#aaa;
+  letter-spacing:1.5px;
   margin-bottom:24px;
+  font-size:13px;
 }
 
 h1{
@@ -236,14 +188,12 @@ h1{
   line-height:.95;
   letter-spacing:8px;
   margin:0 0 26px;
-  text-shadow:0 0 12px rgba(255,255,255,.18);
 }
 
 .subtitle{
   max-width:560px;
   color:#bfbfbf;
   line-height:1.8;
-  font-size:16px;
 }
 
 .actions{
@@ -254,59 +204,49 @@ h1{
 }
 
 .action{
-  background:#070707;
-  border:1px solid #333;
   min-height:76px;
-  padding:18px;
-  color:#d6d6d6;
+  border:1px solid #333;
+  background:#080808;
+  color:#d8d8d8;
   font-family:inherit;
-  font-size:14px;
-  text-align:left;
+  padding:18px;
   cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  text-align:left;
 }
 
-.action:hover{
-  background:#111;
-}
+.action:hover{background:#111}
 
 .cam{
   position:relative;
   border:1px solid #333;
   overflow:hidden;
   background:#000;
-  box-shadow:0 0 40px rgba(0,0,0,.65);
 }
 
 .cam img{
   width:100%;
   display:block;
-  filter:grayscale(1) contrast(1.12) brightness(.70);
-  animation:camGlitch 7s infinite;
+  filter:grayscale(1) contrast(1.12) brightness(.72);
+  animation:camglitch 7s infinite;
 }
 
-@keyframes camGlitch{
-  0%,94%,100%{transform:translateX(0);}
-  95%{transform:translateX(-3px);}
-  96%{transform:translateX(4px);}
-  97%{transform:translateX(0);}
+@keyframes camglitch{
+  0%,94%,100%{transform:translateX(0)}
+  95%{transform:translateX(-3px)}
+  96%{transform:translateX(4px)}
 }
 
-.cam::after{
+.cam:after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(transparent 88%, rgba(255,255,255,.13) 90%);
+  background:linear-gradient(transparent 88%,rgba(255,255,255,.13) 90%);
   background-size:100% 7px;
   opacity:.25;
   pointer-events:none;
 }
 
-.cam-label,
-.cam-rec,
-.cam-time{
+.label,.rec,.time{
   position:absolute;
   background:rgba(0,0,0,.82);
   padding:9px 13px;
@@ -314,62 +254,37 @@ h1{
   font-size:13px;
 }
 
-.cam-label{
-  top:16px;
-  left:16px;
-}
-
-.cam-rec{
-  top:16px;
-  right:16px;
-  color:#d64a3d;
-}
-
-.cam-time{
-  right:16px;
-  bottom:16px;
-  line-height:1.5;
-}
+.label{top:16px;left:16px}
+.rec{top:16px;right:16px;color:#d64a3d}
+.time{right:16px;bottom:16px;line-height:1.5}
 
 .panel{
   margin-top:58px;
   border:1px solid #2b2b2b;
-  background:rgba(255,255,255,.015);
   padding:28px;
+  background:rgba(255,255,255,.015);
 }
 
-.panel.hidden{
-  display:none;
-}
+.hidden{display:none}
 
 .panel-title{
-  font-size:15px;
-  color:#e0e0e0;
-  letter-spacing:1px;
   margin-bottom:22px;
+  letter-spacing:1px;
 }
 
 .dossier-grid{
   display:grid;
   grid-template-columns:.8fr 1.2fr;
   gap:34px;
-  align-items:start;
 }
 
 .dossier-list a{
   display:block;
   border-bottom:1px solid #222;
   padding:14px 0;
-  color:#d6d6d6;
 }
 
-.map-box{
-  border:1px solid #252525;
-  background:#000;
-  padding:12px;
-}
-
-.map-box img{
+.map img{
   width:100%;
   display:block;
   filter:grayscale(1) contrast(1.05) brightness(.85);
@@ -382,16 +297,6 @@ h1{
   margin-top:58px;
 }
 
-.status p{
-  color:#bfbfbf;
-  line-height:1.7;
-  margin:8px 0;
-}
-
-.rows{
-  border-top:1px solid #222;
-}
-
 .row{
   display:grid;
   grid-template-columns:125px 1fr 110px;
@@ -399,10 +304,9 @@ h1{
   border-bottom:1px solid #222;
   padding:15px 0;
   font-size:13px;
-  color:#bfbfbf;
 }
 
-.audio-panel{
+.audio{
   margin-top:58px;
   border-top:1px solid #222;
   padding-top:24px;
@@ -413,12 +317,12 @@ h1{
   font-size:13px;
 }
 
-.audio-button{
-  background:#070707;
-  color:#d6d6d6;
+.audio button{
   border:1px solid #333;
-  padding:12px 18px;
+  background:#080808;
+  color:#d8d8d8;
   font-family:inherit;
+  padding:12px 18px;
   cursor:pointer;
 }
 
@@ -427,180 +331,109 @@ footer{
   padding:28px 54px;
   color:#888;
   font-size:12px;
-  line-height:1.7;
 }
 
 @media(max-width:900px){
-  .topbar{
-    padding:0 18px;
-    font-size:10px;
-  }
-
-  .topbar div:last-child{
-    display:none;
-  }
-
-  header{
-    padding:24px;
-  }
-
-  .desktop-nav,
-  .signal{
-    display:none;
-  }
-
-  .mobile-toggle{
-    display:block;
-  }
-
-  main{
-    padding:34px 22px;
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    gap:38px;
-  }
-
-  h1{
-    font-size:42px;
-    letter-spacing:5px;
-  }
-
-  .actions{
-    grid-template-columns:1fr;
-  }
-
-  .dossier-grid,
-  .status-grid{
-    grid-template-columns:1fr;
-  }
-
-  .row{
-    grid-template-columns:1fr;
-    gap:6px;
-  }
-
-  .audio-panel{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:18px;
-  }
-
-  footer{
-    padding:26px 22px;
-  }
+  nav{display:none}
+  .mobile-button{display:block}
+  .topbar{padding:0 18px;font-size:10px}
+  .topbar div:last-child{display:none}
+  header{padding:24px}
+  main{padding:34px 22px}
+  .hero,.dossier-grid,.status-grid{grid-template-columns:1fr}
+  h1{font-size:42px;letter-spacing:5px}
+  .actions{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:6px}
+  .audio{flex-direction:column;align-items:flex-start;gap:18px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="glitch"></div>
+
 <div class="topbar">
-  <div><span class="green">●</span> RISCHIO BASSO // ARCHIVIO NON INDICIZZATO</div>
+  <div>● RISCHIO BASSO // ARCHIVIO NON INDICIZZATO</div>
   <div>NODO: BARI / LUNGOMARE // CONNESSIONE INSTABILE</div>
 </div>
 
 <header>
   <div class="logo">RISCHIO<br>BASSO</div>
 
-  <nav class="desktop-nav">
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('archivioMenu')">ARCHIVIO ▾</button>
-      <div id="archivioMenu" class="dropdown-menu">
+  <nav>
+    <details>
+      <summary>ARCHIVIO ▾</summary>
+      <div class="dropdown">
         <a href="iris.html">IRIS ADIRA</a>
         <a href="runner.html">RUNNER / LUNGOMARE</a>
         <a href="soggetto1.html">SOGGETTO 1</a>
         <a href="aftermidnight.html">AFTER MIDNIGHT</a>
         <a href="rumore.html">RUMORE</a>
       </div>
-    </div>
+    </details>
 
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('dossierMenu')">DOSSIER ▾</button>
-      <div id="dossierMenu" class="dropdown-menu">
+    <details>
+      <summary>DOSSIER ▾</summary>
+      <div class="dropdown">
         <button onclick="openDossier()">APRI DOSSIER</button>
         <a href="#mappa">MAPPA BARI</a>
         <a href="#avvistamenti">ULTIMI AVVISTAMENTI</a>
       </div>
-    </div>
+    </details>
 
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('segnaliMenu')">SEGNALI ▾</button>
-      <div id="segnaliMenu" class="dropdown-menu">
+    <details>
+      <summary>SEGNALI ▾</summary>
+      <div class="dropdown">
         <button onclick="toggleAudio()">AUDIO INTERFERENZA</button>
         <a href="https://www.instagram.com/rischio_basso" target="_blank">IG / RISCHIO_BASSO</a>
       </div>
-    </div>
-
+    </details>
   </nav>
 
-  <div class="signal">SEGNALE <span class="red">●</span></div>
-
-  <button class="mobile-toggle" onclick="toggleMobile()">MENU ☰</button>
+  <button class="mobile-button" onclick="toggleMobile()">MENU ☰</button>
 </header>
 
 <div id="mobileMenu" class="mobile-menu">
-
-  <div class="mobile-section">
-    <div class="mobile-section-title">ARCHIVIO</div>
-    <a href="iris.html">> IRIS ADIRA</a>
-    <a href="runner.html">> RUNNER / LUNGOMARE</a>
-    <a href="soggetto1.html">> SOGGETTO 1</a>
-    <a href="aftermidnight.html">> AFTER MIDNIGHT</a>
-    <a href="rumore.html">> RUMORE</a>
-  </div>
-
-  <div class="mobile-section">
-    <div class="mobile-section-title">DOSSIER</div>
-    <button onclick="openDossier()">> APRI DOSSIER</button>
-    <a href="#mappa">> MAPPA BARI</a>
-    <a href="#avvistamenti">> ULTIMI AVVISTAMENTI</a>
-  </div>
-
-  <div class="mobile-section">
-    <div class="mobile-section-title">SEGNALI</div>
-    <button onclick="toggleAudio()">> AUDIO INTERFERENZA</button>
-    <a href="https://www.instagram.com/rischio_basso" target="_blank">> IG</a>
-  </div>
-
+  <a href="iris.html">> IRIS ADIRA</a>
+  <a href="runner.html">> RUNNER / LUNGOMARE</a>
+  <a href="soggetto1.html">> SOGGETTO 1</a>
+  <a href="aftermidnight.html">> AFTER MIDNIGHT</a>
+  <a href="rumore.html">> RUMORE</a>
+  <button onclick="openDossier()">> APRI DOSSIER</button>
+  <button onclick="toggleAudio()">> AUDIO INTERFERENZA</button>
+  <a href="https://www.instagram.com/rischio_basso" target="_blank">> IG</a>
 </div>
 
 <main>
 
 <section class="hero">
-
   <div>
     <div class="kicker">OSSERVA. REGISTRA. NON SPIEGARE.</div>
-
     <h1>RISCHIO<br>BASSO</h1>
-
     <div class="subtitle">
       Archivio non indicizzato di presenze anomale, interferenze urbane e segnali registrati lungo margini non verificati.
     </div>
 
     <div class="actions">
-      <button class="action" onclick="openDossier()">APRI<br>DOSSIER <span>›</span></button>
-      <a class="action" href="rumore.html">VISUALIZZA<br>TRACCIA <span>›</span></a>
-      <button class="action" onclick="toggleAudio()">RILEVA<br>INTERFERENZA <span>›</span></button>
+      <button class="action" onclick="openDossier()">APRI<br>DOSSIER</button>
+      <a class="action" href="rumore.html">VISUALIZZA<br>TRACCIA</a>
+      <button class="action" onclick="toggleAudio()">RILEVA<br>INTERFERENZA</button>
     </div>
   </div>
 
   <div class="cam">
-    <div class="cam-label">CAM 07 // LUNGOMARE - BARI</div>
-    <div class="cam-rec">● REC</div>
-    <img src="cam_lungomare.png" alt="CAM 07 Lungomare Bari">
-    <div class="cam-time">20.05.2026<br>01:58:27</div>
+    <div class="label">CAM 07 // LUNGOMARE - BARI</div>
+    <div class="rec">● REC</div>
+    <img src="cam_lungomare.png" alt="CAM Lungomare Bari">
+    <div class="time">20.05.2026<br>01:58:27</div>
   </div>
-
 </section>
 
 <section id="dossierPanel" class="panel hidden">
   <div class="panel-title">// DOSSIER ATTIVI</div>
 
   <div class="dossier-grid">
-
     <div class="dossier-list">
       <a href="iris.html">> IRIS ADIRA</a>
       <a href="runner.html">> RUNNER / LUNGOMARE</a>
@@ -609,63 +442,53 @@ footer{
       <a href="rumore.html">> RUMORE</a>
     </div>
 
-    <div id="mappa" class="map-box">
+    <div id="mappa" class="map">
       <img src="bari_map.png" alt="Mappa Bari">
     </div>
-
   </div>
 </section>
 
 <section class="status-grid">
-
-  <div class="panel status">
+  <div class="panel">
     <div class="panel-title">// STATO SISTEMA</div>
-    <p>connessione: <span class="red">instabile</span></p>
+    <p>connessione: instabile</p>
     <p>ultimo segnale rilevato: 20.05.2026 01:58</p>
     <p>nodo attivo: Bari / Lungomare</p>
     <p>interferenze rilevate: 03</p>
-    <p>archivio aggiornato: 20.05.2026</p>
   </div>
 
   <div id="avvistamenti" class="panel">
     <div class="panel-title">// ULTIMI AVVISTAMENTI</div>
 
-    <div class="rows">
-      <div class="row">
-        <div>20.05.2026</div>
-        <div>Bari / Lungomare — registrazione casuale durante corsa</div>
-        <a href="runner.html">[ dossier ]</a>
-      </div>
+    <div class="row">
+      <div>20.05.2026</div>
+      <div>Bari / Lungomare — registrazione casuale durante corsa</div>
+      <a href="runner.html">[ dossier ]</a>
+    </div>
 
-      <div class="row">
-        <div>19.05.2026</div>
-        <div>Bari / archivio interno — soggetto non collaborativo</div>
-        <a href="soggetto1.html">[ dossier ]</a>
-      </div>
+    <div class="row">
+      <div>19.05.2026</div>
+      <div>Bari / archivio interno — soggetto non collaborativo</div>
+      <a href="soggetto1.html">[ dossier ]</a>
+    </div>
 
-      <div class="row">
-        <div>18.05.2026</div>
-        <div>After Midnight — traccia visiva non confermata</div>
-        <a href="aftermidnight.html">[ dossier ]</a>
-      </div>
+    <div class="row">
+      <div>18.05.2026</div>
+      <div>After Midnight — traccia visiva non confermata</div>
+      <a href="aftermidnight.html">[ dossier ]</a>
+    </div>
 
-      <div class="row">
-        <div>13.05.2026</div>
-        <div>Iris Adira — interferenza operativa</div>
-        <a href="iris.html">[ dossier ]</a>
-      </div>
+    <div class="row">
+      <div>13.05.2026</div>
+      <div>Iris Adira — interferenza operativa</div>
+      <a href="iris.html">[ dossier ]</a>
     </div>
   </div>
-
 </section>
 
-<div class="audio-panel">
-  <div>
-    AUDIO INTERFERENZA<br>
-    canale CRT / riproduzione manuale
-  </div>
-
-  <button id="audioButton" class="audio-button" onclick="toggleAudio()">○ OFF</button>
+<div class="audio">
+  <div>AUDIO INTERFERENZA<br>canale CRT / riproduzione manuale</div>
+  <button id="audioButton" onclick="toggleAudio()">○ OFF</button>
 
   <audio id="noise" loop>
     <source src="crt_noise.mp3" type="audio/mpeg">
@@ -675,57 +498,35 @@ footer{
 </main>
 
 <footer>
-  RISCHIO BASSO // archivio indipendente. Nessun dato viene indicizzato. Nessuna verità viene confermata.
+RISCHIO BASSO // archivio indipendente. Nessun dato viene indicizzato. Nessuna verità viene confermata.
 </footer>
 
 <script>
-function closeAllDropdowns(){
-  const menus = document.querySelectorAll(".dropdown-menu");
-  menus.forEach(menu => menu.classList.remove("open"));
-}
-
-function toggleDropdown(id){
-  const selected = document.getElementById(id);
-  const isOpen = selected.classList.contains("open");
-  closeAllDropdowns();
-  if(!isOpen){
-    selected.classList.add("open");
-  }
-}
-
-document.addEventListener("click", function(event){
-  if(!event.target.closest(".dropdown")){
-    closeAllDropdowns();
-  }
-});
-
 function toggleMobile(){
   document.getElementById("mobileMenu").classList.toggle("open");
 }
 
 function openDossier(){
-  const panel = document.getElementById("dossierPanel");
+  const panel=document.getElementById("dossierPanel");
   panel.classList.remove("hidden");
-  panel.scrollIntoView({behavior:"smooth", block:"start"});
-  closeAllDropdowns();
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-let playing = false;
-const audio = document.getElementById("noise");
-const audioButton = document.getElementById("audioButton");
+let playing=false;
+const audio=document.getElementById("noise");
+const button=document.getElementById("audioButton");
 
 function toggleAudio(){
   if(!playing){
-    audio.volume = 0.22;
+    audio.volume=.22;
     audio.play();
-    audioButton.innerText = "● ON";
-    playing = true;
+    button.innerText="● ON";
+    playing=true;
   }else{
     audio.pause();
-    audioButton.innerText = "○ OFF";
-    playing = false;
+    button.innerText="○ OFF";
+    playing=false;
   }
-  closeAllDropdowns();
 }
 </script>
 
