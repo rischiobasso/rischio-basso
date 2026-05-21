@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RISCHIO BASSO // DOSSIER</title>
+
+<style>
+body{
+  margin:0;
+  background:#050505;
+  color:#d8d8d8;
+  font-family:"Courier New",monospace;
+  padding:40px;
+}
+
+a{
+  color:#d8d8d8;
+  text-decoration:none;
+}
+
+a:hover{
+  color:white;
+}
+
+h1{
+  letter-spacing:6px;
+  font-size:42px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin-top:40px;
+}
+
+.box{
+  border:1px solid #333;
+  padding:24px;
+  background:#080808;
+}
+
+.box img{
+  width:100%;
+  filter:grayscale(1) contrast(1.05);
+}
+
+.link{
+  display:block;
+  border-bottom:1px solid #222;
+  padding:14px 0;
+}
+
+@media(max-width:800px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  body{
+    padding:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html">← TORNA ALL’ARCHIVIO</a>
+
+<h1>DOSSIER</h1>
+
+<div class="grid">
+
+  <div class="box">
+    <h3>// DOSSIER ATTIVI</h3>
+
+    <a class="link" href="iris.html">> IRIS ADIRA</a>
+    <a class="link" href="runner.html">> RUNNER / LUNGOMARE</a>
+    <a class="link" href="soggetto1.html">> SOGGETTO 1</a>
+    <a class="link" href="aftermidnight.html">> AFTER MIDNIGHT</a>
+    <a class="link" href="rumore.html">> RUMORE</a>
+  </div>
+
+  <div class="box">
+    <h3>// MAPPA BARI</h3>
+    <img src="bari_map.png" alt="Mappa Bari">
+  </div>
+
+</div>
+
+</body>
+</html>
