@@ -39,9 +39,9 @@ body:before{
 
 @keyframes glitch{
   0%,88%,100%{opacity:0;transform:translateX(0)}
-  89%{opacity:.12;transform:translateX(-8px)}
-  90%{opacity:.25;transform:translateX(7px)}
-  91%{opacity:.08;transform:translateX(-3px)}
+  89%{opacity:.14;transform:translateX(-8px)}
+  90%{opacity:.26;transform:translateX(7px)}
+  91%{opacity:.10;transform:translateX(-3px)}
   92%{opacity:0}
 }
 
@@ -98,9 +98,7 @@ summary{
 
 summary::-webkit-details-marker{display:none}
 
-details[open] summary{
-  background:#111;
-}
+details[open] summary{background:#111}
 
 .dropdown{
   position:absolute;
@@ -129,9 +127,7 @@ details[open] summary{
 }
 
 .dropdown a:hover,
-.dropdown button:hover{
-  background:#151515;
-}
+.dropdown button:hover{background:#151515}
 
 .mobile-button{
   display:none;
@@ -212,6 +208,8 @@ h1{
   padding:18px;
   cursor:pointer;
   text-align:left;
+  display:flex;
+  align-items:center;
 }
 
 .action:hover{background:#111}
@@ -258,43 +256,22 @@ h1{
 .rec{top:16px;right:16px;color:#d64a3d}
 .time{right:16px;bottom:16px;line-height:1.5}
 
-.panel{
-  margin-top:58px;
-  border:1px solid #2b2b2b;
-  padding:28px;
-  background:rgba(255,255,255,.015);
-}
-
-.hidden{display:none}
-
-.panel-title{
-  margin-bottom:22px;
-  letter-spacing:1px;
-}
-
-.dossier-grid{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:34px;
-}
-
-.dossier-list a{
-  display:block;
-  border-bottom:1px solid #222;
-  padding:14px 0;
-}
-
-.map img{
-  width:100%;
-  display:block;
-  filter:grayscale(1) contrast(1.05) brightness(.85);
-}
-
 .status-grid{
   display:grid;
   grid-template-columns:.85fr 1.15fr;
   gap:34px;
   margin-top:58px;
+}
+
+.panel{
+  border:1px solid #2b2b2b;
+  padding:28px;
+  background:rgba(255,255,255,.015);
+}
+
+.panel-title{
+  margin-bottom:22px;
+  letter-spacing:1px;
 }
 
 .row{
@@ -340,7 +317,7 @@ footer{
   .topbar div:last-child{display:none}
   header{padding:24px}
   main{padding:34px 22px}
-  .hero,.dossier-grid,.status-grid{grid-template-columns:1fr}
+  .hero,.status-grid{grid-template-columns:1fr}
   h1{font-size:42px;letter-spacing:5px}
   .actions{grid-template-columns:1fr}
   .row{grid-template-columns:1fr;gap:6px}
@@ -376,9 +353,9 @@ footer{
     <details>
       <summary>DOSSIER ▾</summary>
       <div class="dropdown">
-        <button onclick="openDossier()">APRI DOSSIER</button>
-        <a href="#mappa">MAPPA BARI</a>
-        <a href="#avvistamenti">ULTIMI AVVISTAMENTI</a>
+        <a href="dossier.html">APRI DOSSIER</a>
+        <a href="dossier.html#mappa">MAPPA BARI</a>
+        <a href="dossier.html#tracce">TRACCE</a>
       </div>
     </details>
 
@@ -400,7 +377,7 @@ footer{
   <a href="soggetto1.html">> SOGGETTO 1</a>
   <a href="aftermidnight.html">> AFTER MIDNIGHT</a>
   <a href="rumore.html">> RUMORE</a>
-  <button onclick="openDossier()">> APRI DOSSIER</button>
+  <a href="dossier.html">> APRI DOSSIER</a>
   <button onclick="toggleAudio()">> AUDIO INTERFERENZA</button>
   <a href="https://www.instagram.com/rischio_basso" target="_blank">> IG</a>
 </div>
@@ -410,13 +387,15 @@ footer{
 <section class="hero">
   <div>
     <div class="kicker">OSSERVA. REGISTRA. NON SPIEGARE.</div>
+
     <h1>RISCHIO<br>BASSO</h1>
+
     <div class="subtitle">
       Archivio non indicizzato di presenze anomale, interferenze urbane e segnali registrati lungo margini non verificati.
     </div>
 
     <div class="actions">
-      <button class="action" onclick="openDossier()">APRI<br>DOSSIER</button>
+      <a class="action" href="dossier.html">APRI<br>DOSSIER</a>
       <a class="action" href="rumore.html">VISUALIZZA<br>TRACCIA</a>
       <button class="action" onclick="toggleAudio()">RILEVA<br>INTERFERENZA</button>
     </div>
@@ -430,24 +409,6 @@ footer{
   </div>
 </section>
 
-<section id="dossierPanel" class="panel hidden">
-  <div class="panel-title">// DOSSIER ATTIVI</div>
-
-  <div class="dossier-grid">
-    <div class="dossier-list">
-      <a href="iris.html">> IRIS ADIRA</a>
-      <a href="runner.html">> RUNNER / LUNGOMARE</a>
-      <a href="soggetto1.html">> SOGGETTO 1</a>
-      <a href="aftermidnight.html">> AFTER MIDNIGHT</a>
-      <a href="rumore.html">> RUMORE</a>
-    </div>
-
-    <div id="mappa" class="map">
-      <img src="bari_map.png" alt="Mappa Bari">
-    </div>
-  </div>
-</section>
-
 <section class="status-grid">
   <div class="panel">
     <div class="panel-title">// STATO SISTEMA</div>
@@ -457,7 +418,7 @@ footer{
     <p>interferenze rilevate: 03</p>
   </div>
 
-  <div id="avvistamenti" class="panel">
+  <div class="panel">
     <div class="panel-title">// ULTIMI AVVISTAMENTI</div>
 
     <div class="row">
@@ -504,12 +465,6 @@ RISCHIO BASSO // archivio indipendente. Nessun dato viene indicizzato. Nessuna v
 <script>
 function toggleMobile(){
   document.getElementById("mobileMenu").classList.toggle("open");
-}
-
-function openDossier(){
-  const panel=document.getElementById("dossierPanel");
-  panel.classList.remove("hidden");
-  panel.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 let playing=false;
