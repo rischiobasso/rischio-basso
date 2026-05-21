@@ -1,233 +1,316 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>RISCHIO BASSO</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#050505;color:#d8d8d8;font-family:"Courier New",monospace;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:100% 4px;pointer-events:none;z-index:50}
-.glitch{position:fixed;inset:0;background:url("iriscrt.jpeg") center/cover no-repeat;opacity:0;pointer-events:none;mix-blend-mode:screen;z-index:60;animation:glitch 10s infinite}
-@keyframes glitch{0%,88%,100%{opacity:0;transform:translateX(0)}89%{opacity:.14;transform:translateX(-8px)}90%{opacity:.26;transform:translateX(7px)}91%{opacity:.10;transform:translateX(-3px)}92%{opacity:0}}
-a{color:#d8d8d8;text-decoration:none}
-a:hover{color:white}
 
-.topbar{height:34px;padding:0 34px;border-bottom:1px solid #222;display:flex;justify-content:flex-end;align-items:center;font-size:12px;color:#999}
-
-header{padding:28px 44px;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;background:#050505;position:relative;z-index:100}
-.logo{font-size:31px;line-height:.95;letter-spacing:4px;font-weight:bold}
-nav{display:flex;gap:18px}
-details{position:relative}
-summary{list-style:none;cursor:pointer;border:1px solid #333;background:#080808;padding:13px 18px;font-size:14px;color:#d8d8d8}
-summary::-webkit-details-marker{display:none}
-details[open] summary{background:#111}
-.dropdown{position:absolute;top:48px;left:0;min-width:230px;background:#080808;border:1px solid #333;box-shadow:0 20px 40px rgba(0,0,0,.7);z-index:300}
-.dropdown a,.dropdown button{display:block;width:100%;padding:14px 16px;border:0;border-bottom:1px solid #1d1d1d;background:#080808;color:#d8d8d8;font-family:inherit;font-size:13px;text-align:left;cursor:pointer}
-.dropdown a:hover,.dropdown button:hover{background:#151515}
-
-.mobile-button{display:none;border:1px solid #333;background:#080808;color:#d8d8d8;font-family:inherit;padding:13px 18px}
-.mobile-menu{display:none;padding:20px 24px;background:#070707;border-bottom:1px solid #222;position:relative;z-index:90}
-.mobile-menu.open{display:block}
-.mobile-menu a,.mobile-menu button{display:block;width:100%;padding:12px 0;border:0;background:none;color:#d8d8d8;font-family:inherit;text-align:left}
-
-main{padding:20px 54px 64px}
-.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:start}
-h1{font-size:58px;line-height:.95;letter-spacing:8px;margin:0 0 26px}
-.subtitle{max-width:560px;color:#bfbfbf;line-height:1.8}
-.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:38px}
-.action{min-height:76px;border:1px solid #333;background:#080808;color:#d8d8d8;font-family:inherit;padding:18px;cursor:pointer;text-align:left;display:flex;align-items:center}
-.action:hover{background:#111}
-
-.cam{position:relative;border:1px solid #333;overflow:hidden;background:#000}
-.cam img{width:100%;display:block;filter:grayscale(1) contrast(1.12) brightness(.72);animation:camglitch 7s infinite}
-@keyframes camglitch{0%,94%,100%{transform:translateX(0)}95%{transform:translateX(-3px)}96%{transform:translateX(4px)}}
-.cam:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 88%,rgba(255,255,255,.13) 90%);background-size:100% 7px;opacity:.25;pointer-events:none}
-.label,.rec,.time{position:absolute;background:rgba(0,0,0,.82);padding:9px 13px;z-index:5;font-size:13px}
-.label{top:16px;left:16px}
-.rec{top:16px;right:16px;color:#d64a3d}
-.time{right:16px;bottom:16px;line-height:1.5}
-
-.status-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:34px;margin-top:58px}
-.panel{border:1px solid #2b2b2b;padding:28px;background:rgba(255,255,255,.015)}
-.panel-title{margin-bottom:22px;letter-spacing:1px}
-.row{display:grid;grid-template-columns:125px 1fr 110px;gap:20px;border-bottom:1px solid #222;padding:15px 0;font-size:13px}
-
-.audio{margin-top:58px;border-top:1px solid #222;padding-top:24px;display:flex;justify-content:space-between;align-items:center;color:#aaa;font-size:13px}
-.audio button{border:1px solid #333;background:#080808;color:#d8d8d8;font-family:inherit;padding:12px 18px;cursor:pointer}
-footer{border-top:1px solid #222;padding:28px 54px;color:#888;font-size:12px}
-
-@media(max-width:900px){
-nav{display:none}
-.mobile-button{display:block}
-.topbar{padding:0 18px;font-size:10px}
-header{padding:24px}
-main{padding:24px 22px 48px}
-.hero,.status-grid{grid-template-columns:1fr}
-h1{font-size:42px;letter-spacing:5px}
-.actions{grid-template-columns:1fr}
-.row{grid-template-columns:1fr;gap:6px}
-.audio{flex-direction:column;align-items:flex-start;gap:18px}
+body{
+background:#000;
+color:#d7d7d7;
+font-family:"Courier New", monospace;
+max-width:1100px;
+margin:auto;
+padding:60px 30px;
+line-height:1.8;
+overflow-x:hidden;
 }
+
+/* GLITCH IRIS */
+
+.iris-glitch{
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+background:url("iriscrt.jpeg");
+background-size:cover;
+background-position:center;
+opacity:0;
+pointer-events:none;
+z-index:999999;
+animation:irisglitch 6s infinite steps(1,end);
+}
+
+@keyframes irisglitch{
+0%,75%,100%{opacity:0;}
+76%{opacity:1;}
+76.15%{opacity:0;}
+76.3%{opacity:1;}
+76.45%{opacity:0;}
+76.6%{opacity:.8;}
+76.8%{opacity:0;}
+}
+
+.small{
+font-size:12px;
+color:#666;
+letter-spacing:3px;
+}
+
+h1{
+font-size:72px;
+letter-spacing:10px;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+.signal{
+font-size:10px;
+color:#555;
+letter-spacing:4px;
+margin-bottom:20px;
+}
+
+.node-status{
+position:absolute;
+top:60px;
+right:50px;
+font-size:11px;
+letter-spacing:3px;
+color:#555;
+text-align:right;
+}
+
+.block{
+margin-top:60px;
+padding:20px;
+border-top:1px solid #222;
+background:#050505;
+transition:.25s ease;
+position:relative;
+}
+
+.block:hover{
+background:#0b0b0b;
+border-top:1px solid #444;
+transform:translateX(4px);
+}
+
+.status{
+color:#888;
+font-size:13px;
+}
+
+.rumore-row{
+display:flex;
+align-items:flex-end;
+justify-content:space-between;
+gap:40px;
+}
+
+.rumore-text{
+width:300px;
+flex-shrink:0;
+}
+
+.rumore-map{
+width:520px;
+border:1px solid #222;
+display:block;
+}
+
+.thumb{
+width:140px;
+border:1px solid #222;
+margin-top:20px;
+display:block;
+}
+
+.missing-file{
+margin-top:60px;
+font-size:11px;
+letter-spacing:4px;
+color:#777;
+border-top:1px dashed #333;
+padding-top:20px;
+}
+
+a{
+color:#d7d7d7;
+text-decoration:none;
+}
+
+a:hover{
+color:#ffffff;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="glitch"></div>
+<div class="iris-glitch"></div>
 
-<div class="topbar">
-  <div>NODO: BARI / LUNGOMARE // CONNESSIONE INSTABILE</div>
+<audio id="crt">
+<source src="crt_noise.mp3" type="audio/mpeg">
+</audio>
+
+<div class="small">
+ARCHIVIO CLANDESTINO / NODO ATTIVO
 </div>
 
-<header>
-  <div class="logo">RISCHIO<br>BASSO</div>
-
-  <nav>
-    <details>
-      <summary>ARCHIVIO ▾</summary>
-      <div class="dropdown">
-        <a href="iris.html">IRIS ADIRA</a>
-        <a href="runner.html">RUNNER / LUNGOMARE</a>
-        <a href="soggetto1.html">SOGGETTO 1</a>
-        <a href="aftermidnight.html">AFTER MIDNIGHT</a>
-        <a href="rumore.html">RUMORE</a>
-      </div>
-    </details>
-
-    <details>
-      <summary>DOSSIER ▾</summary>
-      <div class="dropdown">
-        <a href="dossier.html">APRI DOSSIER</a>
-        <a href="dossier.html#tracce">TRACCE</a>
-      </div>
-    </details>
-
-    <details>
-      <summary>SEGNALI ▾</summary>
-      <div class="dropdown">
-        <button onclick="toggleAudio()">AUDIO INTERFERENZA</button>
-        <a href="https://www.instagram.com/rischio_basso" target="_blank">IG / RISCHIO_BASSO</a>
-      </div>
-    </details>
-  </nav>
-
-  <button class="mobile-button" onclick="toggleMobile()">MENU ☰</button>
-</header>
-
-<div id="mobileMenu" class="mobile-menu">
-  <a href="iris.html">> IRIS ADIRA</a>
-  <a href="runner.html">> RUNNER / LUNGOMARE</a>
-  <a href="soggetto1.html">> SOGGETTO 1</a>
-  <a href="aftermidnight.html">> AFTER MIDNIGHT</a>
-  <a href="rumore.html">> RUMORE</a>
-  <a href="dossier.html">> APRI DOSSIER</a>
-  <a href="dossier.html#tracce">> TRACCE</a>
-  <button onclick="toggleAudio()">> AUDIO INTERFERENZA</button>
-  <a href="https://www.instagram.com/rischio_basso" target="_blank">> IG</a>
+<div class="node-status">
+NODO: ATTIVO<br>
+ULTIMO LOG: 20.05.2026
 </div>
 
-<main>
+<h1>
+RISCHIO BASSO
+</h1>
 
-<section class="hero">
-  <div>
-    <h1>RISCHIO<br>BASSO</h1>
-
-    <div class="subtitle">
-      Archivio non indicizzato di presenze anomale, interferenze urbane e segnali registrati lungo margini non verificati.
-    </div>
-
-    <div class="actions">
-      <a class="action" href="dossier.html">APRI<br>DOSSIER</a>
-      <a class="action" href="rumore.html">VISUALIZZA<br>TRACCIA</a>
-      <button class="action" onclick="toggleAudio()">RILEVA<br>INTERFERENZA</button>
-    </div>
-  </div>
-
-  <div class="cam">
-    <div class="label">CAM 07 // LUNGOMARE - BARI</div>
-    <div class="rec">● REC</div>
-    <img src="cam_lungomare.png" alt="CAM Lungomare Bari">
-    <div class="time">20.05.2026<br>01:58:27</div>
-  </div>
-</section>
-
-<section class="status-grid">
-  <div class="panel">
-    <div class="panel-title">// STATO SISTEMA</div>
-    <p>connessione: instabile</p>
-    <p>ultimo segnale rilevato: 20.05.2026 01:58</p>
-    <p>nodo attivo: Bari / Lungomare</p>
-    <p>interferenze rilevate: 03</p>
-  </div>
-
-  <div class="panel">
-    <div class="panel-title">// ULTIMI AVVISTAMENTI</div>
-
-    <div class="row">
-      <div>20.05.2026</div>
-      <div>Bari / Lungomare — registrazione casuale durante corsa</div>
-      <a href="runner.html">[ dossier ]</a>
-    </div>
-
-    <div class="row">
-      <div>19.05.2026</div>
-      <div>Bari / archivio interno — soggetto non collaborativo</div>
-      <a href="soggetto1.html">[ dossier ]</a>
-    </div>
-
-    <div class="row">
-      <div>18.05.2026</div>
-      <div>After Midnight — traccia visiva non confermata</div>
-      <a href="aftermidnight.html">[ dossier ]</a>
-    </div>
-
-    <div class="row">
-      <div>13.05.2026</div>
-      <div>Iris Adira — interferenza operativa</div>
-      <a href="iris.html">[ dossier ]</a>
-    </div>
-  </div>
-</section>
-
-<div class="audio">
-  <div>AUDIO INTERFERENZA<br>canale CRT / riproduzione manuale</div>
-  <button id="audioButton" onclick="toggleAudio()">○ OFF</button>
-
-  <audio id="noise" loop>
-    <source src="crt_noise.mp3" type="audio/mpeg">
-  </audio>
+<div class="signal">
+SIGNAL / UNSTABLE
 </div>
 
-</main>
+<p>
+interventi registrati
+</p>
 
-<footer>
-RISCHIO BASSO // archivio indipendente. Nessun dato viene indicizzato. Nessuna verità viene confermata.
-</footer>
+<div class="block">
+
+<div class="rumore-row">
+
+<div class="rumore-text">
+
+<a href="rumore.html">
+RB_001 / RUMORE
+</a>
+
+<p class="status">
+Bari / maggio 2026<br><br>
+prima evidenza caricata
+</p>
+
+<a href="rumore.html">
+<img src="manifesto.jpeg" class="thumb">
+</a>
+
+</div>
+
+<img src="bari_map.png" class="rumore-map">
+
+</div>
+
+</div>
+
+<div class="block">
+
+<a href="aftermidnight.html">
+RB_002 / AFTER MIDNIGHT
+</a>
+
+<p class="status">
+stato: aperto
+</p>
+
+</div>
+
+<div class="block">
+
+<a href="iris.html">
+DOSSIER / IRIS ADIRA
+</a>
+
+<p class="status">
+stato: attivo
+</p>
+
+</div>
+
+<div class="block">
+
+<a href="soggetto1.html">
+AVVISTAMENTO_01 / SOGGETTO 01
+</a>
+
+<p class="status">
+osservazione aperta
+</p>
+
+</div>
+
+<div class="missing-file">
+ARCHIVIO INCOMPLETO<br>
+AVVISTAMENTO_02 / NON DISPONIBILE
+</div>
+
+<div class="block">
+
+<a href="runner.html">
+AVVISTAMENTO_03 / RUNNER
+</a>
+
+<p class="status">
+registrazione casuale<br><br>
+lungomare Bari<br><br>
+figura in corsa rilevata<br><br>
+supporto associato:<br>
+sirena / mare
+</p>
+
+</div>
+
+<div class="block">
+
+<a href="cam01.html">
+CAM_01 / IRIS
+</a>
+
+<p class="status">
+telecamera esterna<br><br>
+soggetto rilevato:<br>
+IRIS ADIRA<br><br>
+stato:<br>
+frame disponibile<br><br>
+origine:<br>
+non verificata
+</p>
+
+</div>
+
+<div class="block">
+
+CANALE ESTERNO
+
+<p class="status">
+attività in corso<br><br>
+
+<a href="https://instagram.com/rischio_basso" target="_blank">
+ig / nodo esterno
+</a>
+</p>
+
+</div>
 
 <script>
-function toggleMobile(){
-  document.getElementById("mobileMenu").classList.toggle("open");
+
+let crtPlayed=false;
+
+document.addEventListener("click",()=>{
+
+if(crtPlayed){
+return;
 }
 
-let playing=false;
-const audio=document.getElementById("noise");
-const button=document.getElementById("audioButton");
+let a=document.getElementById("crt");
 
-function toggleAudio(){
-  if(!playing){
-    audio.volume=.22;
-    audio.play();
-    button.innerText="● ON";
-    playing=true;
-  }else{
-    audio.pause();
-    button.innerText="○ OFF";
-    playing=false;
-  }
-}
+a.volume=0.08;
+
+a.play();
+
+crtPlayed=true;
+
+});
+
 </script>
 
 </body>
+
 </html>
