@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
 <meta charset="UTF-8">
-
 <title>RISCHIO BASSO</title>
 
 <style>
-
 body{
 background:#000;
 color:#d7d7d7;
@@ -19,8 +15,6 @@ padding:60px 30px;
 line-height:1.8;
 overflow-x:hidden;
 }
-
-/* GLITCH IRIS */
 
 .iris-glitch{
 position:fixed;
@@ -47,10 +41,62 @@ animation:irisglitch 6s infinite steps(1,end);
 76.8%{opacity:0;}
 }
 
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+margin-bottom:40px;
+}
+
 .small{
 font-size:12px;
 color:#666;
 letter-spacing:3px;
+}
+
+.nav{
+position:relative;
+font-size:13px;
+letter-spacing:3px;
+color:#777;
+}
+
+.dropbtn{
+background:none;
+border:none;
+color:#aaa;
+font-family:"Courier New", monospace;
+cursor:pointer;
+font-size:13px;
+letter-spacing:3px;
+}
+
+.menu{
+display:none;
+position:absolute;
+top:30px;
+right:0;
+background:#050505;
+border:1px solid #222;
+min-width:260px;
+z-index:1000;
+padding:10px 0;
+}
+
+.menu.open{
+display:block;
+}
+
+.menu a{
+display:block;
+padding:10px 18px;
+color:#999;
+text-decoration:none;
+}
+
+.menu a:hover{
+background:#111;
+color:#fff;
 }
 
 h1{
@@ -69,7 +115,7 @@ margin-bottom:20px;
 
 .node-status{
 position:absolute;
-top:60px;
+top:105px;
 right:50px;
 font-size:11px;
 letter-spacing:3px;
@@ -137,11 +183,39 @@ text-decoration:none;
 }
 
 a:hover{
-color:#ffffff;
+color:#fff;
 }
 
-</style>
+@media(max-width:800px){
+h1{
+font-size:42px;
+letter-spacing:6px;
+}
 
+.node-status{
+position:static;
+text-align:left;
+margin-top:20px;
+}
+
+.rumore-row{
+display:block;
+}
+
+.rumore-map{
+width:100%;
+margin-top:30px;
+}
+
+.rumore-text{
+width:100%;
+}
+
+.menu{
+right:0;
+}
+}
+</style>
 </head>
 
 <body>
@@ -152,8 +226,26 @@ color:#ffffff;
 <source src="crt_noise.mp3" type="audio/mpeg">
 </audio>
 
+<div class="topbar">
+
 <div class="small">
 ARCHIVIO CLANDESTINO / NODO ATTIVO
+</div>
+
+<div class="nav">
+<button class="dropbtn" onclick="toggleMenu()">MENU</button>
+
+<div class="menu" id="menu">
+<a href="rumore.html">RB_001 / RUMORE</a>
+<a href="aftermidnight.html">RB_002 / AFTER MIDNIGHT</a>
+<a href="iris.html">DOSSIER / IRIS ADIRA</a>
+<a href="soggetto1.html">AVVISTAMENTO_01 / SOGGETTO 01</a>
+<a href="runner.html">AVVISTAMENTO_03 / RUNNER</a>
+<a href="cam01.html">CAM_01 / IRIS</a>
+<a href="https://instagram.com/rischio_basso" target="_blank">IG / NODO ESTERNO</a>
+</div>
+</div>
+
 </div>
 
 <div class="node-status">
@@ -161,9 +253,7 @@ NODO: ATTIVO<br>
 ULTIMO LOG: 20.05.2026
 </div>
 
-<h1>
-RISCHIO BASSO
-</h1>
+<h1>RISCHIO BASSO</h1>
 
 <div class="signal">
 SIGNAL / UNSTABLE
@@ -174,7 +264,6 @@ interventi registrati
 </p>
 
 <div class="block">
-
 <div class="rumore-row">
 
 <div class="rumore-text">
@@ -197,7 +286,6 @@ prima evidenza caricata
 <img src="bari_map.png" class="rumore-map">
 
 </div>
-
 </div>
 
 <div class="block">
@@ -268,9 +356,7 @@ telecamera esterna<br><br>
 soggetto rilevato:<br>
 IRIS ADIRA<br><br>
 stato:<br>
-frame disponibile<br><br>
-origine:<br>
-non verificata
+frame disponibile
 </p>
 
 </div>
@@ -290,6 +376,18 @@ ig / nodo esterno
 </div>
 
 <script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("open");
+}
+
+document.addEventListener("click",function(e){
+let nav=document.querySelector(".nav");
+let menu=document.getElementById("menu");
+
+if(!nav.contains(e.target)){
+menu.classList.remove("open");
+}
+});
 
 let crtPlayed=false;
 
@@ -308,9 +406,7 @@ a.play();
 crtPlayed=true;
 
 });
-
 </script>
 
 </body>
-
 </html>
