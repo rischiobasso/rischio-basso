@@ -1,123 +1,294 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RISCHIO BASSO // DOSSIER</title>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+RISCHIO BASSO // DOSSIER
+</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box;
+}
 
 body{
-  margin:0;
-  background:#050505;
-  color:#d8d8d8;
-  font-family:"Courier New",monospace;
-  padding:42px;
+
+margin:0;
+
+background:#050505;
+
+color:#d8d8d8;
+
+font-family:
+"Courier New",
+monospace;
+
+padding:40px;
+
+overflow-x:hidden;
+
 }
 
 body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:100% 4px;
-  pointer-events:none;
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+linear-gradient(
+rgba(255,255,255,.03)
+1px,
+transparent 1px
+);
+
+background-size:
+100% 4px;
+
+pointer-events:none;
+
 }
 
-a{color:#d8d8d8;text-decoration:none}
-a:hover{color:white}
+a{
+
+color:#d8d8d8;
+
+text-decoration:none;
+
+}
 
 .back{
-  display:inline-block;
-  margin-bottom:34px;
-  border:1px solid #333;
-  padding:12px 16px;
-  background:#080808;
+
+display:inline-block;
+
+margin-bottom:35px;
+
+padding:
+12px 18px;
+
+border:
+1px solid #333;
+
+background:#080808;
+
 }
 
 h1{
-  font-size:48px;
-  letter-spacing:7px;
-  margin:0 0 36px;
+
+font-size:48px;
+
+letter-spacing:7px;
+
+margin:0 0 35px;
+
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:.85fr 1.15fr;
-  gap:34px;
+
+display:grid;
+
+grid-template-columns:
+.8fr 1.2fr;
+
+gap:30px;
+
 }
 
 .box{
-  border:1px solid #333;
-  padding:26px;
-  background:#080808;
-}
 
-.box h3{
-  margin-top:0;
-  letter-spacing:1px;
+border:
+1px solid #333;
+
+padding:25px;
+
+background:#080808;
+
 }
 
 .link{
-  display:block;
-  border-bottom:1px solid #222;
-  padding:15px 0;
+
+display:block;
+
+padding:
+14px 0;
+
+border-bottom:
+1px solid #222;
+
 }
 
-#mappa img{
-  width:100%;
-  display:block;
-  filter:grayscale(1) contrast(1.08) brightness(.85);
+.box img{
+
+width:100%;
+
+filter:
+grayscale(1)
+contrast(1.05)
+brightness(.85);
+
 }
 
 .tracce{
-  margin-top:34px;
-  border:1px solid #333;
-  padding:26px;
-  background:#080808;
+
+margin-top:30px;
+
+border:
+1px solid #333;
+
+padding:25px;
+
+background:#080808;
+
 }
 
-@media(max-width:850px){
-  body{padding:24px}
-  .grid{grid-template-columns:1fr}
-  h1{font-size:38px}
+@media(
+max-width:900px
+){
+
+body{
+
+padding:24px;
+
 }
+
+.grid{
+
+grid-template-columns:
+1fr;
+
+}
+
+h1{
+
+font-size:38px;
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<a class="back" href="index.html">← TORNA ALL’ARCHIVIO</a>
+<a
+class="back"
+href="index.html">
 
-<h1>DOSSIER</h1>
+← ARCHIVIO
+
+</a>
+
+<h1>
+
+DOSSIER
+
+</h1>
 
 <div class="grid">
 
-  <div class="box">
-    <h3>// DOSSIER ATTIVI</h3>
-    <a class="link" href="iris.html">> IRIS ADIRA</a>
-    <a class="link" href="runner.html">> RUNNER / LUNGOMARE</a>
-    <a class="link" href="soggetto1.html">> SOGGETTO 1</a>
-    <a class="link" href="aftermidnight.html">> AFTER MIDNIGHT</a>
-    <a class="link" href="rumore.html">> RUMORE</a>
-  </div>
+<div class="box">
 
-  <div id="mappa" class="box">
-    <h3>// MAPPA BARI</h3>
-    <img src="bari_map.png" alt="Mappa Bari">
-  </div>
+<h3>
+
+DOSSIER ATTIVI
+
+</h3>
+
+<a
+class="link"
+href="iris.html">
+
+IRIS ADIRA
+
+</a>
+
+<a
+class="link"
+href="runner.html">
+
+RUNNER
+
+</a>
+
+<a
+class="link"
+href="soggetto1.html">
+
+SOGGETTO1
+
+</a>
+
+<a
+class="link"
+href="aftermidnight.html">
+
+AFTER MIDNIGHT
+
+</a>
+
+<a
+class="link"
+href="rumore.html">
+
+RUMORE
+
+</a>
 
 </div>
 
-<div id="tracce" class="tracce">
-  <h3>// TRACCE ARCHIVIATE</h3>
-  <p>cam_lungomare.png / feed camera</p>
-  <p>bari_map.png / mappa operativa</p>
-  <p>crt_noise.mp3 / interferenza audio</p>
-  <p>iriscrt.jpeg / apparizione CRT</p>
-  <p>runner.mp4 / registrazione casuale</p>
+<div
+class="box"
+id="mappa">
+
+<h3>
+
+MAPPA BARI
+
+</h3>
+
+<img
+src=
+"bari_map.png">
+
+</div>
+
+</div>
+
+<div
+class=
+"tracce"
+id=
+"tracce">
+
+<h3>
+
+TRACCE
+
+</h3>
+
+cam_lungomare.png<br>
+
+crt_noise.mp3<br>
+
+iriscrt.jpeg<br>
+
+runner.mp4<br>
+
+manifesto.jpeg
+
 </div>
 
 </body>
+
 </html>
