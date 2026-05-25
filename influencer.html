@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RISCHIO BASSO</title>
+<title>INFLUENCER // RISCHIO BASSO</title>
 
 <style>
 *{box-sizing:border-box}
@@ -26,42 +26,12 @@ body:before{
   z-index:50;
 }
 
-.glitch{
-  position:fixed;
-  inset:0;
-  background:url("iriscrt.jpeg") center/cover no-repeat;
-  opacity:0;
-  pointer-events:none;
-  mix-blend-mode:screen;
-  z-index:60;
-  animation:glitch 10s infinite;
-}
-
-@keyframes glitch{
-  0%,88%,100%{opacity:0;transform:translateX(0)}
-  89%{opacity:.14;transform:translateX(-8px)}
-  90%{opacity:.26;transform:translateX(7px)}
-  91%{opacity:.10;transform:translateX(-3px)}
-  92%{opacity:0}
-}
-
 a{
   color:#d8d8d8;
   text-decoration:none;
 }
 
 a:hover{color:white}
-
-.topbar{
-  height:34px;
-  padding:0 34px;
-  border-bottom:1px solid #222;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  font-size:12px;
-  color:#999;
-}
 
 header{
   padding:28px 44px;
@@ -81,238 +51,85 @@ header{
   font-weight:bold;
 }
 
-nav{
-  display:flex;
-  gap:18px;
-}
-
-details{position:relative}
-
-summary{
-  list-style:none;
-  cursor:pointer;
+.back{
   border:1px solid #333;
   background:#080808;
   padding:13px 18px;
   font-size:14px;
-  color:#d8d8d8;
-}
-
-summary::-webkit-details-marker{display:none}
-
-details[open] summary{background:#111}
-
-.dropdown{
-  position:absolute;
-  top:48px;
-  left:0;
-  min-width:260px;
-  background:#080808;
-  border:1px solid #333;
-  box-shadow:0 20px 40px rgba(0,0,0,.7);
-  z-index:300;
-}
-
-.dropdown a,
-.dropdown button{
-  display:block;
-  width:100%;
-  padding:14px 16px;
-  border:0;
-  border-bottom:1px solid #1d1d1d;
-  background:#080808;
-  color:#d8d8d8;
-  font-family:inherit;
-  font-size:13px;
-  text-align:left;
-  cursor:pointer;
-}
-
-.dropdown a:hover,
-.dropdown button:hover{
-  background:#151515;
-}
-
-.mobile-button{
-  display:none;
-  border:1px solid #333;
-  background:#080808;
-  color:#d8d8d8;
-  font-family:inherit;
-  padding:13px 18px;
-}
-
-.mobile-menu{
-  display:none;
-  padding:20px 24px;
-  background:#070707;
-  border-bottom:1px solid #222;
-  position:relative;
-  z-index:90;
-}
-
-.mobile-menu.open{display:block}
-
-.mobile-menu a,
-.mobile-menu button{
-  display:block;
-  width:100%;
-  padding:12px 0;
-  border:0;
-  background:none;
-  color:#d8d8d8;
-  font-family:inherit;
-  text-align:left;
 }
 
 main{
-  padding:20px 54px 64px;
-}
-
-.hero{
-  display:grid;
-  grid-template-columns:1fr 1.05fr;
-  gap:64px;
-  align-items:start;
+  padding:42px 54px 70px;
+  max-width:1180px;
+  margin:auto;
 }
 
 h1{
-  font-size:58px;
+  font-size:54px;
   line-height:.95;
-  letter-spacing:8px;
-  margin:0 0 26px;
+  letter-spacing:7px;
+  margin:0 0 14px;
 }
 
-.subtitle{
-  max-width:560px;
-  color:#bfbfbf;
-  line-height:1.8;
+.meta{
+  color:#888;
+  font-size:13px;
+  margin-bottom:36px;
+  line-height:1.6;
 }
 
-.actions{
+.grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:38px;
+  grid-template-columns:1fr 1fr;
+  gap:38px;
+  align-items:start;
 }
 
-.action{
-  min-height:76px;
+.card{
   border:1px solid #333;
   background:#080808;
-  color:#d8d8d8;
-  font-family:inherit;
-  padding:18px;
-  cursor:pointer;
-  text-align:left;
-  display:flex;
-  align-items:center;
-}
-
-.action:hover{background:#111}
-
-.cam{
+  padding:22px;
   position:relative;
-  border:1px solid #333;
-  overflow:hidden;
-  background:#000;
-}
-
-.cam img{
-  width:100%;
-  display:block;
-  filter:grayscale(1) contrast(1.12) brightness(.72);
-  animation:camglitch 7s infinite;
-}
-
-@keyframes camglitch{
-  0%,94%,100%{transform:translateX(0)}
-  95%{transform:translateX(-3px)}
-  96%{transform:translateX(4px)}
-}
-
-.cam:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(transparent 88%,rgba(255,255,255,.13) 90%);
-  background-size:100% 7px;
-  opacity:.25;
-  pointer-events:none;
-}
-
-.label,
-.rec,
-.time{
-  position:absolute;
-  background:rgba(0,0,0,.82);
-  padding:9px 13px;
-  z-index:5;
-  font-size:13px;
 }
 
 .label{
-  top:16px;
-  left:16px;
-}
-
-.rec{
-  top:16px;
-  right:16px;
-  color:#d64a3d;
-}
-
-.time{
-  right:16px;
-  bottom:16px;
-  line-height:1.5;
-}
-
-.status-grid{
-  display:grid;
-  grid-template-columns:.85fr 1.15fr;
-  gap:34px;
-  margin-top:58px;
-}
-
-.panel{
-  border:1px solid #2b2b2b;
-  padding:28px;
-  background:rgba(255,255,255,.015);
-}
-
-.panel-title{
-  margin-bottom:22px;
+  color:#777;
+  font-size:12px;
+  margin-bottom:14px;
   letter-spacing:1px;
 }
 
-.row{
-  display:grid;
-  grid-template-columns:125px 1fr 110px;
-  gap:20px;
-  border-bottom:1px solid #222;
-  padding:15px 0;
-  font-size:13px;
+.card img,
+.card video{
+  width:100%;
+  display:block;
+  background:#000;
+  filter:contrast(1.08) saturate(.82);
 }
 
-.audio{
-  margin-top:58px;
+.text{
+  color:#bfbfbf;
+  font-size:15px;
+  line-height:1.85;
+}
+
+.data{
+  margin-top:28px;
   border-top:1px solid #222;
-  padding-top:24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:#aaa;
+  padding-top:18px;
   font-size:13px;
+  color:#999;
+  line-height:1.8;
 }
 
-.audio button{
+.warning{
+  margin-top:38px;
   border:1px solid #333;
-  background:#080808;
-  color:#d8d8d8;
-  font-family:inherit;
-  padding:12px 18px;
-  cursor:pointer;
+  background:#070707;
+  padding:24px;
+  color:#aaa;
+  line-height:1.8;
+  font-size:14px;
 }
 
 footer{
@@ -322,208 +139,84 @@ footer{
   font-size:12px;
 }
 
-@media(max-width:900px){
-  nav{display:none}
-  .mobile-button{display:block}
-  .topbar{padding:0 18px;font-size:10px}
+@media(max-width:850px){
   header{padding:24px}
-  main{padding:24px 22px 48px}
-  .hero,.status-grid{grid-template-columns:1fr}
-  h1{font-size:42px;letter-spacing:5px}
-  .actions{grid-template-columns:1fr}
-  .row{grid-template-columns:1fr;gap:6px}
-  .audio{flex-direction:column;align-items:flex-start;gap:18px}
+  main{padding:30px 22px 54px}
+  .grid{grid-template-columns:1fr}
+  h1{font-size:40px;letter-spacing:5px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="glitch"></div>
-
-<div class="topbar">
-  <div>NODO: BARI / LUNGOMARE // CONNESSIONE INSTABILE</div>
-</div>
-
 <header>
-
   <div class="logo">RISCHIO<br>BASSO</div>
-
-  <nav>
-
-    <details>
-      <summary>ARCHIVIO ▾</summary>
-      <div class="dropdown">
-        <a href="iris.html">IRIS ADIRA</a>
-        <a href="runner.html">RUNNER / LUNGOMARE</a>
-        <a href="soggetto1.html">SOGGETTO 1</a>
-        <a href="aftermidnight.html">AFTER MIDNIGHT</a>
-        <a href="rumore.html">RUMORE</a>
-        <a href="cam01.html">CAM 01</a>
-        <a href="influencer.html">INFLUENCER</a>
-        <a href="nessuna-identificazione.html">NESSUNA IDENTIFICAZIONE</a>
-      </div>
-    </details>
-
-    <details>
-      <summary>DOSSIER ▾</summary>
-      <div class="dropdown">
-        <a href="dossier.html">APRI DOSSIER</a>
-        <a href="influencer.html">INFLUENCER</a>
-        <a href="nessuna-identificazione.html">NESSUNA IDENTIFICAZIONE</a>
-        <a href="dossier.html#tracce">TRACCE</a>
-      </div>
-    </details>
-
-    <details>
-      <summary>SEGNALI ▾</summary>
-      <div class="dropdown">
-        <button onclick="toggleAudio()">AUDIO INTERFERENZA</button>
-        <a href="https://www.instagram.com/rischio_basso" target="_blank">IG / RISCHIO_BASSO</a>
-      </div>
-    </details>
-
-  </nav>
-
-  <button class="mobile-button" onclick="toggleMobile()">MENU ☰</button>
-
+  <a class="back" href="index.html">← ARCHIVIO</a>
 </header>
-
-<div id="mobileMenu" class="mobile-menu">
-  <a href="iris.html">> IRIS ADIRA</a>
-  <a href="runner.html">> RUNNER / LUNGOMARE</a>
-  <a href="soggetto1.html">> SOGGETTO 1</a>
-  <a href="aftermidnight.html">> AFTER MIDNIGHT</a>
-  <a href="rumore.html">> RUMORE</a>
-  <a href="cam01.html">> CAM 01</a>
-  <a href="influencer.html">> INFLUENCER</a>
-  <a href="nessuna-identificazione.html">> NESSUNA IDENTIFICAZIONE</a>
-  <a href="dossier.html">> APRI DOSSIER</a>
-  <a href="dossier.html#tracce">> TRACCE</a>
-  <button onclick="toggleAudio()">> AUDIO INTERFERENZA</button>
-  <a href="https://www.instagram.com/rischio_basso" target="_blank">> IG</a>
-</div>
 
 <main>
 
-<section class="hero">
+<h1>INFLUENCER</h1>
 
-  <div>
+<div class="meta">
+  DOSSIER // 25.05.2026 / materiale acquisito / frammento video urbano
+</div>
 
-    <h1>RISCHIO<br>BASSO</h1>
+<section class="grid">
 
-    <div class="subtitle">
-      Archivio non indicizzato di presenze anomale, interferenze urbane e segnali registrati lungo margini non verificati.
-    </div>
-
-    <div class="actions">
-      <a class="action" href="dossier.html">APRI<br>DOSSIER</a>
-      <a class="action" href="influencer.html">ULTIMO<br>SEGNALE</a>
-      <button class="action" onclick="toggleAudio()">RILEVA<br>INTERFERENZA</button>
-    </div>
-
+  <div class="card">
+    <div class="label">FRAME ACQUISITO</div>
+    <img src="influencer.jpeg" alt="Influencer">
   </div>
 
-  <div class="cam">
-    <div class="label">CAM 07 // LUNGOMARE - BARI</div>
-    <div class="rec">● REC</div>
-    <img src="cam_lungomare.png" alt="CAM Lungomare Bari">
-    <div class="time">20.05.2026<br>01:58:27</div>
-  </div>
+  <div class="card text">
+    <div class="label">NOTA DI ARCHIVIO</div>
 
-</section>
+    <p>
+      Il soggetto viene registrato durante una sequenza breve, apparentemente ordinaria.
+      Il gesto sembra appartenere al linguaggio dei contenuti social, ma il contesto urbano produce una distorsione.
+    </p>
 
-<section class="status-grid">
+    <p>
+      Non è chiaro se il frammento sia volontario, intercettato o ricostruito.
+      L’immagine mantiene un livello di esposizione anomalo e una distanza narrativa non compatibile con una normale ripresa promozionale.
+    </p>
 
-  <div class="panel">
-    <div class="panel-title">// STATO SISTEMA</div>
-    <p>connessione: instabile</p>
-    <p>ultimo segnale rilevato: 25.05.2026 17:32</p>
-    <p>nodo : Bari / rete urbana</p>
-    <p>interferenze rilevate: 05</p>
-  </div>
+    <p>
+      La traccia viene archiviata come presenza pubblica non pienamente identificata.
+      Nessuna interpretazione viene confermata.
+    </p>
 
-  <div class="panel">
-
-    <div class="panel-title">// ULTIMI AVVISTAMENTI</div>
-
-    <div class="row">
-      <div>25.05.2026</div>
-      <div>Nessuna identificazione — soggetto non riconosciuto</div>
-      <a href="nessuna-identificazione.html">[ dossier ]</a>
+    <div class="data">
+      data acquisizione: 25.05.2026<br>
+      posizione: Bari / rete urbana<br>
+      stato: aperto<br>
+      livello rischio: basso
     </div>
-
-    <div class="row">
-      <div>25.05.2026</div>
-      <div>Influencer — frammento video acquisito</div>
-      <a href="influencer.html">[ dossier ]</a>
-    </div>
-
-    <div class="row">
-      <div>20.05.2026</div>
-      <div>Bari / Lungomare — registrazione casuale durante corsa</div>
-      <a href="runner.html">[ dossier ]</a>
-    </div>
-
-    <div class="row">
-      <div>19.05.2026</div>
-      <div>Bari / archivio interno — soggetto non collaborativo</div>
-      <a href="soggetto1.html">[ dossier ]</a>
-    </div>
-
-    <div class="row">
-      <div>18.05.2026</div>
-      <div>After Midnight — traccia visiva non confermata</div>
-      <a href="aftermidnight.html">[ dossier ]</a>
-    </div>
-
-    <div class="row">
-      <div>13.05.2026</div>
-      <div>Iris Adira — interferenza operativa</div>
-      <a href="iris.html">[ dossier ]</a>
-    </div>
-
   </div>
 
 </section>
 
-<div class="audio">
-  <div>AUDIO INTERFERENZA<br>canale CRT / riproduzione manuale</div>
-  <button id="audioButton" onclick="toggleAudio()">○ OFF</button>
+<section class="card" style="margin-top:38px;">
+  <div class="label">VIDEO / FRAMMENTO</div>
+  <video controls playsinline preload="metadata">
+    <source src="influencer.mp4" type="video/mp4">
+    Il browser non supporta il video.
+  </video>
+</section>
 
-  <audio id="noise" loop>
-    <source src="crt_noise.mp3" type="audio/mpeg">
-  </audio>
+<div class="warning">
+  Il materiale non viene presentato come prova.  
+  È una traccia, un residuo, un errore di superficie.  
+  La visibilità del soggetto non coincide con la sua identificazione.
 </div>
 
 </main>
 
 <footer>
-RISCHIO BASSO // archivio indipendente. Nessun dato viene indicizzato. Nessuna verità viene confermata.
+RISCHIO BASSO // influencer // frammento acquisito.
 </footer>
-
-<script>
-function toggleMobile(){
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-
-let playing=false;
-const audio=document.getElementById("noise");
-const button=document.getElementById("audioButton");
-
-function toggleAudio(){
-  if(!playing){
-    audio.volume=.22;
-    audio.play();
-    button.innerText="● ON";
-    playing=true;
-  }else{
-    audio.pause();
-    button.innerText="○ OFF";
-    playing=false;
-  }
-}
-</script>
 
 </body>
 </html>
