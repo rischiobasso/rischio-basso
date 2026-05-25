@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NESSUNA IDENTIFICAZIONE // RISCHIO BASSO</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#050505;
+  color:#d8d8d8;
+  font-family:"Courier New",monospace;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:100% 4px;
+  pointer-events:none;
+  z-index:50;
+}
+a{color:#d8d8d8;text-decoration:none}
+a:hover{color:white}
+
+header{
+  padding:28px 44px;
+  border-bottom:1px solid #222;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:30px;
+  line-height:.95;
+  letter-spacing:4px;
+  font-weight:bold;
+}
+.back{
+  border:1px solid #333;
+  padding:12px 18px;
+  background:#080808;
+}
+
+main{
+  padding:42px 54px 70px;
+  max-width:1200px;
+  margin:auto;
+}
+
+h1{
+  font-size:48px;
+  letter-spacing:5px;
+  line-height:1;
+  margin:0 0 14px;
+}
+
+.meta{
+  color:#888;
+  margin-bottom:36px;
+  font-size:13px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:38px;
+  align-items:start;
+}
+
+.card{
+  border:1px solid #333;
+  background:#080808;
+  padding:22px;
+}
+
+.card img,
+.card video{
+  width:100%;
+  display:block;
+  filter:contrast(1.08) saturate(.82);
+}
+
+.text{
+  line-height:1.8;
+  color:#bfbfbf;
+  font-size:15px;
+}
+
+.label{
+  color:#777;
+  font-size:12px;
+  margin-bottom:14px;
+}
+
+footer{
+  border-top:1px solid #222;
+  padding:28px 54px;
+  color:#777;
+  font-size:12px;
+}
+
+@media(max-width:850px){
+  header{padding:24px}
+  main{padding:30px 22px 54px}
+  .grid{grid-template-columns:1fr}
+  h1{font-size:36px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">RISCHIO<br>BASSO</div>
+  <a class="back" href="index.html">← ARCHIVIO</a>
+</header>
+
+<main>
+
+<h1>NESSUNA<br>IDENTIFICAZIONE</h1>
+
+<div class="meta">
+  DOSSIER // 25.05.2026 / materiale acquisito / soggetto non riconosciuto
+</div>
+
+<section class="grid">
+
+  <div class="card">
+    <div class="label">FRAME ACQUISITO</div>
+    <img src="nessuna_identificazione.jpeg" alt="Nessuna identificazione">
+  </div>
+
+  <div class="card text">
+    <div class="label">NOTA DI ARCHIVIO</div>
+
+    <p>
+      Il volto non risulta leggibile.  
+      Il soggetto appare coperto da cappuccio rosso, in posizione frontale, ma privo di elementi utili al riconoscimento.
+    </p>
+
+    <p>
+      L’immagine è stata inserita nel fascicolo come traccia instabile.  
+      Nessuna identità confermata. Nessun riferimento verificabile.
+    </p>
+
+    <p>
+      Stato pratica: aperta.<br>
+      Livello rischio: basso.<br>
+      Identificazione: assente.
+    </p>
+  </div>
+
+</section>
+
+<section class="card" style="margin-top:38px;">
+  <div class="label">VIDEO / FRAMMENTO</div>
+  <video controls playsinline>
+    <source src="nessuna_identificazione.mp4" type="video/mp4">
+  </video>
+</section>
+
+</main>
+
+<footer>
+RISCHIO BASSO // nessuna identificazione confermata.
+</footer>
+
+</body>
+</html>
