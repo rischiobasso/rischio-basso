@@ -7,106 +7,90 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
-  margin:0;
-  background:#050505;
-  color:#d8d8d8;
-  font-family:"Courier New",monospace;
+margin:0;
+background:#050505;
+color:#d8d8d8;
+font-family:"Courier New",monospace;
 }
+
 body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:100% 4px;
-  pointer-events:none;
-  z-index:50;
+content:"";
+position:fixed;
+inset:0;
+background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+background-size:100% 4px;
+pointer-events:none;
 }
-a{color:#d8d8d8;text-decoration:none}
-a:hover{color:white}
 
 header{
-  padding:28px 44px;
-  border-bottom:1px solid #222;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+padding:28px 44px;
+border-bottom:1px solid #222;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
+
 .logo{
-  font-size:30px;
-  line-height:.95;
-  letter-spacing:4px;
-  font-weight:bold;
+font-size:31px;
+line-height:.95;
+letter-spacing:4px;
+font-weight:bold;
 }
+
 .back{
-  border:1px solid #333;
-  padding:12px 18px;
-  background:#080808;
+border:1px solid #333;
+padding:12px 18px;
+background:#080808;
+color:#d8d8d8;
+text-decoration:none;
 }
 
 main{
-  padding:42px 54px 70px;
-  max-width:1200px;
-  margin:auto;
-}
-
-h1{
-  font-size:48px;
-  letter-spacing:5px;
-  line-height:1;
-  margin:0 0 14px;
-}
-
-.meta{
-  color:#888;
-  margin-bottom:36px;
-  font-size:13px;
+padding:42px 54px 70px;
+max-width:1200px;
+margin:auto;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:38px;
-  align-items:start;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:38px;
 }
 
 .card{
-  border:1px solid #333;
-  background:#080808;
-  padding:22px;
+border:1px solid #333;
+background:#080808;
+padding:22px;
 }
 
 .card img,
 .card video{
-  width:100%;
-  display:block;
-  filter:contrast(1.08) saturate(.82);
-}
-
-.text{
-  line-height:1.8;
-  color:#bfbfbf;
-  font-size:15px;
+width:100%;
+display:block;
 }
 
 .label{
-  color:#777;
-  font-size:12px;
-  margin-bottom:14px;
+color:#777;
+font-size:12px;
+margin-bottom:14px;
+}
+
+.text{
+line-height:1.8;
+color:#bfbfbf;
 }
 
 footer{
-  border-top:1px solid #222;
-  padding:28px 54px;
-  color:#777;
-  font-size:12px;
+border-top:1px solid #222;
+padding:28px 54px;
+font-size:12px;
+color:#777;
 }
 
 @media(max-width:850px){
-  header{padding:24px}
-  main{padding:30px 22px 54px}
-  .grid{grid-template-columns:1fr}
-  h1{font-size:36px}
+.grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -114,58 +98,49 @@ footer{
 <body>
 
 <header>
-  <div class="logo">RISCHIO<br>BASSO</div>
-  <a class="back" href="index.html">← ARCHIVIO</a>
+<div class="logo">RISCHIO<br>BASSO</div>
+<a class="back" href="index.html">← ARCHIVIO</a>
 </header>
 
 <main>
 
-<h1>NESSUNA<br>IDENTIFICAZIONE</h1>
+<div class="grid">
 
-<div class="meta">
-  DOSSIER // 25.05.2026 / materiale acquisito / soggetto non riconosciuto
+<div class="card">
+<div class="label">FRAME ACQUISITO</div>
+
+<img src="nessuna-identificazione.jpeg">
+
 </div>
 
-<section class="grid">
+<div class="card text">
 
-  <div class="card">
-    <div class="label">FRAME ACQUISITO</div>
-    <img src="nessuna_identificazione.jpeg" alt="Nessuna identificazione">
-  </div>
+<div class="label">NOTA ARCHIVIO</div>
 
-  <div class="card text">
-    <div class="label">NOTA DI ARCHIVIO</div>
+Il volto non risulta identificabile.
 
-    <p>
-      Il volto non risulta leggibile.  
-      Il soggetto appare coperto da cappuccio rosso, in posizione frontale, ma privo di elementi utili al riconoscimento.
-    </p>
+Il soggetto appare coperto e privo di elementi utili al riconoscimento.
 
-    <p>
-      L’immagine è stata inserita nel fascicolo come traccia instabile.  
-      Nessuna identità confermata. Nessun riferimento verificabile.
-    </p>
+La traccia resta aperta.
 
-    <p>
-      Stato pratica: aperta.<br>
-      Livello rischio: basso.<br>
-      Identificazione: assente.
-    </p>
-  </div>
+</div>
 
-</section>
+</div>
 
-<section class="card" style="margin-top:38px;">
-  <div class="label">VIDEO / FRAMMENTO</div>
-  <video controls playsinline>
-    <source src="nessuna_identificazione.mp4" type="video/mp4">
-  </video>
-</section>
+<div class="card" style="margin-top:38px">
+
+<div class="label">VIDEO</div>
+
+<video controls>
+<source src="nessuna-identificazione.mp4" type="video/mp4">
+</video>
+
+</div>
 
 </main>
 
 <footer>
-RISCHIO BASSO // nessuna identificazione confermata.
+RISCHIO BASSO // identificazione assente
 </footer>
 
 </body>
