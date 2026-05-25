@@ -1,294 +1,314 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>
-RISCHIO BASSO // DOSSIER
-</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOSSIER // RISCHIO BASSO</title>
 
 <style>
 
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
-
 margin:0;
-
 background:#050505;
-
 color:#d8d8d8;
-
-font-family:
-"Courier New",
-monospace;
-
-padding:40px;
-
+font-family:"Courier New",monospace;
 overflow-x:hidden;
-
 }
 
 body:before{
-
 content:"";
-
 position:fixed;
-
 inset:0;
-
-background:
-linear-gradient(
-rgba(255,255,255,.03)
-1px,
-transparent 1px
-);
-
-background-size:
-100% 4px;
-
+background:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px);
+background-size:100% 4px;
 pointer-events:none;
-
+z-index:50;
 }
 
-a{
+header{
+padding:28px 44px;
+border-bottom:1px solid #222;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-color:#d8d8d8;
-
-text-decoration:none;
-
+.logo{
+font-size:31px;
+line-height:.95;
+letter-spacing:4px;
+font-weight:bold;
 }
 
 .back{
-
-display:inline-block;
-
-margin-bottom:35px;
-
-padding:
-12px 18px;
-
-border:
-1px solid #333;
-
+border:1px solid #333;
+padding:13px 18px;
 background:#080808;
+color:#d8d8d8;
+text-decoration:none;
+}
 
+main{
+max-width:1200px;
+margin:auto;
+padding:42px 54px 70px;
 }
 
 h1{
-
-font-size:48px;
-
+font-size:56px;
+line-height:.95;
 letter-spacing:7px;
+margin:0 0 18px;
+}
 
-margin:0 0 35px;
-
+.meta{
+color:#888;
+font-size:13px;
+margin-bottom:42px;
+line-height:1.7;
 }
 
 .grid{
-
 display:grid;
-
-grid-template-columns:
-.8fr 1.2fr;
-
-gap:30px;
-
+grid-template-columns:repeat(2,1fr);
+gap:28px;
 }
 
-.box{
-
-border:
-1px solid #333;
-
-padding:25px;
-
+.card{
+border:1px solid #333;
 background:#080808;
-
-}
-
-.link{
-
-display:block;
-
-padding:
-14px 0;
-
-border-bottom:
-1px solid #222;
-
-}
-
-.box img{
-
-width:100%;
-
-filter:
-grayscale(1)
-contrast(1.05)
-brightness(.85);
-
-}
-
-.tracce{
-
-margin-top:30px;
-
-border:
-1px solid #333;
-
-padding:25px;
-
-background:#080808;
-
-}
-
-@media(
-max-width:900px
-){
-
-body{
-
 padding:24px;
+transition:.2s;
+}
 
+.card:hover{
+background:#111;
+}
+
+.card a{
+color:#d8d8d8;
+text-decoration:none;
+display:block;
+}
+
+.label{
+font-size:12px;
+color:#777;
+margin-bottom:12px;
+letter-spacing:1px;
+}
+
+.title{
+font-size:22px;
+margin-bottom:12px;
+letter-spacing:2px;
+}
+
+.text{
+font-size:14px;
+line-height:1.8;
+color:#bfbfbf;
+}
+
+footer{
+border-top:1px solid #222;
+padding:28px 54px;
+font-size:12px;
+color:#777;
+}
+
+@media(max-width:850px){
+
+main{
+padding:30px 22px 54px;
 }
 
 .grid{
-
-grid-template-columns:
-1fr;
-
+grid-template-columns:1fr;
 }
 
 h1{
-
-font-size:38px;
-
+font-size:40px;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<a
-class="back"
-href="index.html">
+<header>
 
+<div class="logo">
+RISCHIO<br>BASSO
+</div>
+
+<a class="back" href="index.html">
 ← ARCHIVIO
+</a>
+
+</header>
+
+<main>
+
+<h1>DOSSIER</h1>
+
+<div class="meta">
+
+Archivio operativo.  
+Tracce urbane, presenze, interferenze e frammenti acquisiti.
+
+</div>
+
+<section class="grid">
+
+<div class="card">
+
+<a href="influencer.html">
+
+<div class="label">
+25.05.2026
+</div>
+
+<div class="title">
+INFLUENCER
+</div>
+
+<div class="text">
+
+Frammento urbano acquisito.  
+Presenza pubblica non classificata.
+
+</div>
 
 </a>
 
-<h1>
+</div>
 
-DOSSIER
+<div class="card">
 
-</h1>
+<a href="nessuna-identificazione.html">
 
-<div class="grid">
+<div class="label">
+25.05.2026
+</div>
 
-<div class="box">
+<div class="title">
+NESSUNA IDENTIFICAZIONE
+</div>
 
-<h3>
+<div class="text">
 
-DOSSIER ATTIVI
+Soggetto non identificato.  
+Traccia aperta.
 
-</h3>
-
-<a
-class="link"
-href="iris.html">
-
-IRIS ADIRA
-
-</a>
-
-<a
-class="link"
-href="runner.html">
-
-RUNNER
+</div>
 
 </a>
 
-<a
-class="link"
-href="soggetto1.html">
+</div>
 
-SOGGETTO1
+<div class="card">
+
+<a href="runner.html">
+
+<div class="label">
+20.05.2026
+</div>
+
+<div class="title">
+RUNNER / LUNGOMARE
+</div>
+
+<div class="text">
+
+Registrazione casuale durante corsa.
+
+</div>
 
 </a>
 
-<a
-class="link"
-href="aftermidnight.html">
+</div>
 
+<div class="card">
+
+<a href="soggetto1.html">
+
+<div class="label">
+19.05.2026
+</div>
+
+<div class="title">
+SOGGETTO 1
+</div>
+
+<div class="text">
+
+Archivio interno.  
+Soggetto non collaborativo.
+
+</div>
+
+</a>
+
+</div>
+
+<div class="card">
+
+<a href="aftermidnight.html">
+
+<div class="label">
+18.05.2026
+</div>
+
+<div class="title">
 AFTER MIDNIGHT
+</div>
+
+<div class="text">
+
+Traccia visiva non confermata.
+
+</div>
 
 </a>
 
-<a
-class="link"
-href="rumore.html">
+</div>
 
-RUMORE
+<div class="card">
+
+<a href="iris.html">
+
+<div class="label">
+13.05.2026
+</div>
+
+<div class="title">
+IRIS ADIRA
+</div>
+
+<div class="text">
+
+Interferenza operativa.
+
+</div>
 
 </a>
 
 </div>
 
-<div
-class="box"
-id="mappa">
+</section>
 
-<h3>
+</main>
 
-MAPPA BARI
+<footer>
 
-</h3>
+RISCHIO BASSO // archivio operativo
 
-<img
-src=
-"bari_map.png">
-
-</div>
-
-</div>
-
-<div
-class=
-"tracce"
-id=
-"tracce">
-
-<h3>
-
-TRACCE
-
-</h3>
-
-cam_lungomare.png<br>
-
-crt_noise.mp3<br>
-
-iriscrt.jpeg<br>
-
-runner.mp4<br>
-
-manifesto.jpeg
-
-</div>
+</footer>
 
 </body>
-
 </html>
