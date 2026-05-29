@@ -7,243 +7,39 @@
 <meta name="description" content="Archivio di segnali minimi, presenze laterali e interventi a bassa esposizione.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#050504;--fg:#e7e0d4;--muted:#9b9183;--line:rgba(231,224,212,.16);
-  --panel:rgba(5,5,4,.68);--panel2:rgba(18,15,12,.58);--accent:#c77722;--red:#9b3028;
-}
+:root{--bg:#050504;--fg:#e7e0d4;--muted:#9b9183;--line:rgba(231,224,212,.16);--panel:rgba(5,5,4,.68);--panel2:rgba(18,15,12,.58);--accent:#c77722;--red:#9b3028}
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--fg);font-family:"Courier New",monospace;overflow-x:hidden;
-}
-body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:80;
-  background:
-    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-    radial-gradient(circle at 20% 10%,rgba(199,119,34,.08),transparent 32%),
-    radial-gradient(circle at 70% 60%,rgba(255,255,255,.04),transparent 30%);
-  background-size:100% 4px,100% 100%,100% 100%;
-  mix-blend-mode:screen;opacity:.55;
-}
-body:after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:79;opacity:.075;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.topbar{
-  position:fixed;top:0;left:0;right:0;height:54px;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;
-  align-items:center;border-bottom:1px solid var(--line);background:rgba(0,0,0,.55);backdrop-filter:blur(10px);
-  padding:0 42px;color:var(--muted);font-size:13px;letter-spacing:1.5px;text-transform:uppercase
-}
-.brand{justify-self:start;color:#d9d0c1}
-.nav{display:flex;gap:44px;justify-content:center}
-.nav a{opacity:.68;padding:18px 0;border-bottom:2px solid transparent}
-.nav a:hover,.nav a.active{opacity:1;border-bottom-color:var(--fg)}
-.status{justify-self:end;display:flex;gap:18px;align-items:center}
-.dot{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
-.hero{
-  min-height:100vh;position:relative;display:grid;grid-template-columns:minmax(320px,520px) 1fr;align-items:center;
-  padding:84px 5vw 140px;overflow:hidden;background:#000;
-}
-.hero-bg{
-  position:absolute;inset:0;background-image:
-    linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.72) 23%,rgba(0,0,0,.18) 58%,rgba(0,0,0,.68) 100%),
-    linear-gradient(0deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.10) 50%,rgba(0,0,0,.72) 100%),
-    url('hero-rb.png');
-  background-size:cover;background-position:center center;filter:saturate(.86) contrast(1.04) brightness(.96);transform:scale(1.005);
-}
-.side-code{position:absolute;left:16px;top:96px;bottom:28px;z-index:2;color:#6e665c;font-size:11px;display:flex;flex-direction:column;justify-content:space-between;opacity:.65}
-.side-code span{writing-mode:vertical-rl;text-orientation:mixed}
-.hero-content{position:relative;z-index:3;max-width:560px}
-.kicker{color:var(--accent);letter-spacing:6px;text-transform:uppercase;margin-bottom:28px;font-size:15px}
-h1{font-size:clamp(68px,10vw,138px);line-height:.78;letter-spacing:-5px;font-family:Impact,"Arial Black",sans-serif;text-transform:uppercase;color:#ded8cd;text-shadow:0 12px 40px rgba(0,0,0,.85)}
-.meta{margin-top:36px;color:#c0b7aa;font-size:18px;line-height:1.55;text-transform:uppercase;letter-spacing:1.5px}
-.cursor{display:inline-block;width:86px;height:10px;border:1px solid var(--line);margin:0 8px;position:relative;top:1px}
-.cursor:after{content:"";display:block;height:100%;width:48%;background:var(--fg);opacity:.35;animation:pulse 2.6s infinite}
-@keyframes pulse{0%,100%{transform:translateX(0);opacity:.2}50%{transform:translateX(43px);opacity:.55}}
-.actions{margin-top:46px;display:grid;grid-template-columns:1fr;gap:12px;max-width:330px}
-.action{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:rgba(0,0,0,.42);padding:17px 20px;color:#d8d0c4;text-transform:uppercase;letter-spacing:1px;transition:.22s}
-.action:hover{background:rgba(199,119,34,.12);border-color:rgba(199,119,34,.55);transform:translateX(4px)}
-.transmission{
-  position:absolute;right:5vw;bottom:310px;z-index:4;width:min(430px,31vw);border:1px solid var(--line);
-  background:rgba(0,0,0,.48);backdrop-filter:blur(8px);padding:28px
-}
-.transmission .t-title{color:#a99d8d;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
-.transmission p{color:#d4cabd;line-height:1.6}
-.grid-bottom{
-  position:absolute;left:5vw;right:5vw;bottom:42px;z-index:5;display:grid;grid-template-columns:1fr 1.15fr 1.05fr 1.05fr;gap:16px;
-}
-.panel{border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(10px);min-height:210px;padding:22px;position:relative;overflow:hidden}
-.panel:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.035),transparent 45%);pointer-events:none}
-.panel-title{display:flex;justify-content:space-between;color:#8d8377;text-transform:uppercase;letter-spacing:1.6px;font-size:13px;margin-bottom:22px}
-.dossier-list{display:grid;gap:15px;font-size:14px;text-transform:uppercase;letter-spacing:.8px}
-.dossier-list a{color:#d6cec2}
-.dossier-list a:hover{color:var(--accent)}
-.view-all{position:absolute;left:22px;bottom:18px;color:#938a7e;font-size:13px;text-transform:uppercase}
-.map{height:145px;position:relative;border:1px solid rgba(255,255,255,.07);background:
-  linear-gradient(35deg,transparent 48%,rgba(255,255,255,.07) 49%,transparent 50%),
-  linear-gradient(120deg,transparent 48%,rgba(255,255,255,.045) 49%,transparent 50%),
-  radial-gradient(circle at 45% 45%,rgba(199,119,34,.08),transparent 45%);
-  background-size:50px 50px,70px 70px,100% 100%;opacity:.88
-}
-.node{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
-.node span{position:absolute;left:11px;top:-7px;color:#bdb3a4;font-size:12px;text-transform:uppercase}
-.n1{left:42%;top:58%}.n2{left:24%;top:70%}.n3{left:55%;top:48%}.n4{left:70%;top:72%}.n5{left:49%;top:30%}
-.signals{display:grid;gap:12px;font-size:13px;color:#b8afa2;line-height:1.28}
-.signal small{display:block;color:#7d756b;margin-bottom:3px}
-.noisebox{height:118px;background:
-  repeating-radial-gradient(circle at 30% 30%,#ddd 0 1px,#111 1px 3px,#555 3px 4px);
-  opacity:.75;filter:contrast(1.3);margin-bottom:18px;animation:noiseMove .8s steps(2) infinite;
-}
-@keyframes noiseMove{0%{transform:translate(0)}50%{transform:translate(-2px,1px)}100%{transform:translate(1px,-1px)}}
-section.content{padding:92px 5vw;background:#060605;border-top:1px solid rgba(255,255,255,.08)}
-.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:34px}
-.section-head h2{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(44px,7vw,86px);letter-spacing:-2px;color:#d9d2c7;text-transform:uppercase}
-.section-head p{max-width:560px;color:#9f9588;line-height:1.7}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.card{min-height:240px;border:1px solid var(--line);background:var(--panel2);padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
-.card:hover{transform:translateY(-4px);border-color:rgba(199,119,34,.5);background:rgba(22,17,12,.78)}
-.code{color:var(--accent);font-size:13px;letter-spacing:2px}
-.card h3{font-size:20px;line-height:1.1;text-transform:uppercase;margin:18px 0;color:#eee5d7}
-.card p{color:#a59b8e;line-height:1.55;font-size:14px}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
-.tag{border:1px solid rgba(255,255,255,.14);padding:5px 8px;color:#8f867a;font-size:11px;text-transform:uppercase}
-.timeline{display:grid;gap:12px;max-width:980px}
-.time-row{display:grid;grid-template-columns:140px 170px 1fr 110px;gap:18px;border-bottom:1px solid rgba(255,255,255,.1);padding:18px 0;color:#bdb4a8}
-.time-row b{color:#f0e8db;font-weight:normal;text-transform:uppercase}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:900px}
-.form input,.form select,.form textarea{background:#090807;border:1px solid var(--line);color:#e0d7ca;padding:16px;font-family:inherit}
-.form textarea{grid-column:1/-1;min-height:130px}
-.form button{grid-column:1/-1;background:rgba(199,119,34,.12);border:1px solid rgba(199,119,34,.55);color:#f0e6d8;padding:18px;font-family:inherit;text-transform:uppercase;letter-spacing:2px;cursor:pointer}
-.form button:hover{background:rgba(199,119,34,.22)}
-#msg{color:var(--accent);margin-top:18px;min-height:22px}
-footer{padding:34px 5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#7d756b;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;background:#030303}
-@media(max-width:1100px){
-  .hero{grid-template-columns:1fr;padding-top:110px;min-height:auto;padding-bottom:30px}
-  .transmission{position:relative;right:auto;bottom:auto;width:auto;margin:40px 0 0;z-index:3}
-  .grid-bottom{position:relative;left:auto;right:auto;bottom:auto;grid-template-columns:1fr 1fr;margin-top:34px}
-  .cards{grid-template-columns:1fr 1fr}.nav{gap:18px}.topbar{padding:0 18px}
-}
-@media(max-width:720px){
-  .topbar{grid-template-columns:1fr auto;height:auto;min-height:54px;padding:10px 16px}.nav{display:none}.status{font-size:10px}
-  .hero{padding:88px 20px 28px}h1{font-size:72px;letter-spacing:-3px}.meta{font-size:14px}
-  .hero-bg{background-position:center top}
-  .grid-bottom{grid-template-columns:1fr}.panel{min-height:auto}.cards{grid-template-columns:1fr}.section-head{display:block}
-  .time-row{grid-template-columns:1fr;gap:6px}.form{grid-template-columns:1fr}footer{display:grid;gap:12px}
-}
+body{background:var(--bg);color:var(--fg);font-family:"Courier New",monospace;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),radial-gradient(circle at 20% 10%,rgba(199,119,34,.08),transparent 32%),radial-gradient(circle at 70% 60%,rgba(255,255,255,.04),transparent 30%);background-size:100% 4px,100% 100%,100% 100%;mix-blend-mode:screen;opacity:.55}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:79;opacity:.075;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.topbar{position:fixed;top:0;left:0;right:0;height:54px;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--line);background:rgba(0,0,0,.55);backdrop-filter:blur(10px);padding:0 42px;color:var(--muted);font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.brand{justify-self:start;color:#d9d0c1}.nav{display:flex;gap:44px;justify-content:center}.nav a{opacity:.68;padding:18px 0;border-bottom:2px solid transparent}.nav a:hover,.nav a.active{opacity:1;border-bottom-color:var(--fg)}.status{justify-self:end;display:flex;gap:18px;align-items:center}.dot{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
+.hero{min-height:100vh;position:relative;display:grid;grid-template-columns:minmax(320px,520px) 1fr;align-items:center;padding:84px 5vw 140px;overflow:hidden;background:#000}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.72) 23%,rgba(0,0,0,.18) 58%,rgba(0,0,0,.68) 100%),linear-gradient(0deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.10) 50%,rgba(0,0,0,.72) 100%),url('hero-rb.png');background-size:cover;background-position:center center;filter:saturate(.86) contrast(1.04) brightness(.96);transform:scale(1.005)}
+.side-code{position:absolute;left:16px;top:96px;bottom:28px;z-index:2;color:#6e665c;font-size:11px;display:flex;flex-direction:column;justify-content:space-between;opacity:.65}.side-code span{writing-mode:vertical-rl;text-orientation:mixed}.hero-content{position:relative;z-index:3;max-width:560px}.kicker{color:var(--accent);letter-spacing:6px;text-transform:uppercase;margin-bottom:28px;font-size:15px}
+h1{font-size:clamp(68px,10vw,138px);line-height:.78;letter-spacing:-5px;font-family:Impact,"Arial Black",sans-serif;text-transform:uppercase;color:#ded8cd;text-shadow:0 12px 40px rgba(0,0,0,.85)}.meta{margin-top:36px;color:#c0b7aa;font-size:18px;line-height:1.55;text-transform:uppercase;letter-spacing:1.5px}.cursor{display:inline-block;width:86px;height:10px;border:1px solid var(--line);margin:0 8px;position:relative;top:1px}.cursor:after{content:"";display:block;height:100%;width:48%;background:var(--fg);opacity:.35;animation:pulse 2.6s infinite}@keyframes pulse{0%,100%{transform:translateX(0);opacity:.2}50%{transform:translateX(43px);opacity:.55}}
+.actions{margin-top:46px;display:grid;grid-template-columns:1fr;gap:12px;max-width:330px}.action{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:rgba(0,0,0,.42);padding:17px 20px;color:#d8d0c4;text-transform:uppercase;letter-spacing:1px;transition:.22s}.action:hover{background:rgba(199,119,34,.12);border-color:rgba(199,119,34,.55);transform:translateX(4px)}
+.transmission{position:absolute;right:5vw;bottom:310px;z-index:4;width:min(430px,31vw);border:1px solid var(--line);background:rgba(0,0,0,.48);backdrop-filter:blur(8px);padding:28px}.transmission .t-title{color:#a99d8d;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}.transmission p{color:#d4cabd;line-height:1.6}
+.grid-bottom{position:absolute;left:5vw;right:5vw;bottom:42px;z-index:5;display:grid;grid-template-columns:1fr 1.15fr 1.05fr 1.05fr;gap:16px}.panel{border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(10px);min-height:210px;padding:22px;position:relative;overflow:hidden;transition:.22s}.panel:hover{border-color:rgba(199,119,34,.48);background:rgba(10,8,6,.78);transform:translateY(-3px)}.panel:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.035),transparent 45%);pointer-events:none}.panel-title{display:flex;justify-content:space-between;color:#8d8377;text-transform:uppercase;letter-spacing:1.6px;font-size:13px;margin-bottom:22px}.panel-link{display:block;color:inherit}.panel-link .panel{height:100%}
+.dossier-list{display:grid;gap:15px;font-size:14px;text-transform:uppercase;letter-spacing:.8px}.dossier-list a{color:#d6cec2}.dossier-list a:hover{color:var(--accent)}.view-all{position:absolute;left:22px;bottom:18px;color:#938a7e;font-size:13px;text-transform:uppercase}
+.map{height:145px;position:relative;border:1px solid rgba(255,255,255,.07);background:linear-gradient(35deg,transparent 48%,rgba(255,255,255,.07) 49%,transparent 50%),linear-gradient(120deg,transparent 48%,rgba(255,255,255,.045) 49%,transparent 50%),radial-gradient(circle at 45% 45%,rgba(199,119,34,.08),transparent 45%);background-size:50px 50px,70px 70px,100% 100%;opacity:.88}.node{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent);border:0;cursor:pointer}.node span{position:absolute;left:14px;top:-7px;color:#bdb3a4;font-family:"Courier New",monospace;font-size:12px;text-transform:uppercase;white-space:nowrap}.node:hover{transform:scale(1.35)}.n1{left:42%;top:58%}.n2{left:24%;top:70%}.n3{left:55%;top:48%}.n4{left:70%;top:72%}.n5{left:49%;top:30%}.map-note{margin-top:12px;color:#958b7e;font-size:12px;line-height:1.45;min-height:34px}
+.signals{display:grid;gap:12px;font-size:13px;color:#b8afa2;line-height:1.28}.signal small{display:block;color:#7d756b;margin-bottom:3px}.noisebox{height:118px;background:repeating-radial-gradient(circle at 30% 30%,#ddd 0 1px,#111 1px 3px,#555 3px 4px);opacity:.75;filter:contrast(1.3);margin-bottom:18px;animation:noiseMove .8s steps(2) infinite}@keyframes noiseMove{0%{transform:translate(0)}50%{transform:translate(-2px,1px)}100%{transform:translate(1px,-1px)}}
+section.content{padding:92px 5vw;background:#060605;border-top:1px solid rgba(255,255,255,.08)}.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:34px}.section-head h2{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(44px,7vw,86px);letter-spacing:-2px;color:#d9d2c7;text-transform:uppercase}.section-head p{max-width:560px;color:#9f9588;line-height:1.7}
+.archive-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.archive-tile{min-height:210px;border:1px solid var(--line);background:rgba(12,10,8,.72);position:relative;overflow:hidden;padding:18px;display:flex;flex-direction:column;justify-content:space-between;transition:.24s}.archive-tile:hover{transform:translateY(-5px);border-color:rgba(199,119,34,.55)}.thumb{height:112px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg,rgba(199,119,34,.18),rgba(255,255,255,.035)),url('hero-rb.png');background-size:cover;background-position:center;filter:grayscale(.35) contrast(1.05);opacity:.82;margin:-4px -4px 16px}.archive-tile:nth-child(2) .thumb{background-position:30% 70%}.archive-tile:nth-child(3) .thumb{background-position:80% 60%;filter:grayscale(.1) contrast(1.15)}.archive-tile:nth-child(4) .thumb{background:repeating-radial-gradient(circle at 30% 30%,#ddd 0 1px,#111 1px 3px,#555 3px 4px)}.archive-tile:nth-child(5) .thumb{background-position:60% 35%}.archive-tile:nth-child(6) .thumb{background-position:15% 50%}.archive-tile b{font-weight:normal;color:#eee5d7;text-transform:uppercase;line-height:1.1}.archive-tile small{color:var(--accent);letter-spacing:1.5px}.archive-tile span{color:#8f867a;font-size:12px;text-transform:uppercase}
+.timeline{display:grid;gap:12px;max-width:980px}.time-row{display:grid;grid-template-columns:140px 170px 1fr 110px;gap:18px;border-bottom:1px solid rgba(255,255,255,.1);padding:18px 0;color:#bdb4a8}.time-row b{color:#f0e8db;font-weight:normal;text-transform:uppercase}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:900px}.form input,.form select,.form textarea{background:#090807;border:1px solid var(--line);color:#e0d7ca;padding:16px;font-family:inherit}.form textarea{grid-column:1/-1;min-height:130px}.form button{grid-column:1/-1;background:rgba(199,119,34,.12);border:1px solid rgba(199,119,34,.55);color:#f0e6d8;padding:18px;font-family:inherit;text-transform:uppercase;letter-spacing:2px;cursor:pointer}.form button:hover{background:rgba(199,119,34,.22)}#msg{color:var(--accent);margin-top:18px;min-height:22px}footer{padding:34px 5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#7d756b;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;background:#030303}
+@media(max-width:1100px){.hero{grid-template-columns:1fr;padding-top:110px;min-height:auto;padding-bottom:30px}.transmission{position:relative;right:auto;bottom:auto;width:auto;margin:40px 0 0;z-index:3}.grid-bottom{position:relative;left:auto;right:auto;bottom:auto;grid-template-columns:1fr 1fr;margin-top:34px}.archive-grid{grid-template-columns:repeat(3,1fr)}.nav{gap:18px}.topbar{padding:0 18px}}
+@media(max-width:720px){.topbar{grid-template-columns:1fr auto;height:auto;min-height:54px;padding:10px 16px}.nav{display:none}.status{font-size:10px}.hero{padding:88px 20px 28px}h1{font-size:72px;letter-spacing:-3px}.meta{font-size:14px}.hero-bg{background-position:center top}.grid-bottom{grid-template-columns:1fr}.panel{min-height:auto}.archive-grid{grid-template-columns:1fr}.section-head{display:block}.time-row{grid-template-columns:1fr;gap:6px}.form{grid-template-columns:1fr}footer{display:grid;gap:12px}}
 </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="brand">RISCHIO BASSO // ARCHIVIO CLANDESTINO</div>
-  <nav class="nav">
-    <a class="active" href="#home">HOME</a>
-    <a href="dossier.html">DOSSIER</a>
-    <a href="#segnalazioni">SEGNALAZIONI</a>
-    <a href="#archivio">ARCHIVIO</a>
-    <a href="iris.html">IRIS</a>
-  </nav>
-  <div class="status"><span class="dot"></span><span>NODO ATTIVO</span></div>
-</header>
-
-<main id="home" class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="side-code"><span>RB / 23 / A</span><span>856</span></div>
-  <div class="hero-content">
-    <h1>RISCHIO<br>BASSO</h1>
-    <div class="kicker">Archivio clandestino</div>
-    <div class="meta">NODO <span class="cursor"></span><br>BARI / OSSERVAZIONE PARZIALE<br>ORIGINE SCONOSCIUTA<br>_</div>
-    <div class="actions">
-      <a class="action" href="dossier.html"><span>Apri dossier</span><span>[+]</span></a>
-      <a class="action" href="#segnalazioni"><span>Segnalazioni recenti</span><span>[+]</span></a>
-    </div>
-  </div>
-  <aside class="transmission">
-    <div class="t-title">Trasmissione <span style="float:right">+</span></div>
-    <p>Invia una traccia. Identificazione non richiesta.</p>
-    <a href="#trasmissione" style="display:block;margin-top:20px;color:var(--accent)">→</a>
-  </aside>
-  <div class="grid-bottom">
-    <article class="panel">
-      <div class="panel-title"><span>Dossier attivi</span><span>+</span></div>
-      <div class="dossier-list">
-        <a href="soggetto1.html">RB-001 / Soggetto in movimento</a>
-        <a href="#">RB-002 / Supporto rilevato</a>
-        <a href="mappa.html">RB-003 / Nodo attivo</a>
-        <a href="iris.html">RB-004 / Iris</a>
-      </div>
-      <a class="view-all" href="dossier.html">Vedi tutti [+]</a>
-    </article>
-    <article class="panel">
-      <div class="panel-title"><span>Mappa Bari</span><span>+</span></div>
-      <div class="map">
-        <div class="node n1"><span>Murat</span></div>
-        <div class="node n2"><span>Libertà</span></div>
-        <div class="node n3"><span>Madonnella</span></div>
-        <div class="node n4"><span>Japigia</span></div>
-        <div class="node n5"><span>Porto</span></div>
-      </div>
-    </article>
-    <article id="segnalazioni" class="panel">
-      <div class="panel-title"><span>Ultime segnalazioni</span><span>+</span></div>
-      <div class="signals">
-        <div class="signal"><small>21.05.25 / 22:47</small>MADONNELLA<br>SUPPORTO RILEVATO</div>
-        <div class="signal"><small>21.05.25 / 20:11</small>LIBERTÀ<br>SOGGETTO IN MOVIMENTO</div>
-        <div class="signal"><small>21.05.25 / 18:32</small>MURAT<br>INTERVENTO REGISTRATO</div>
-      </div>
-    </article>
-    <article class="panel">
-      <div class="panel-title"><span>Trasmissione aperta</span><span>+</span></div>
-      <div class="noisebox"></div>
-      <a class="view-all" href="#trasmissione">Invia traccia [+]</a>
-    </article>
-  </div>
-</main>
-
-<section id="archivio" class="content">
-  <div class="section-head">
-    <h2>Archivio</h2>
-    <p>Materiali non conclusivi: immagini, video, testi e residui raccolti senza garanzia di origine. Il sistema ordina le tracce, non le chiarisce.</p>
-  </div>
-  <div class="cards">
-    <article class="card"><div><span class="code">RB-025-NID</span><h3>Nessuna identificazione</h3><p>Soggetto non confermato. Traccia aperta. Il volto non coincide con una identità disponibile.</p></div><div class="tags"><span class="tag">video</span><span class="tag">volto</span><span class="tag">basso</span></div></article>
-    <article class="card"><div><span class="code">RB-024-INF</span><h3>Influencer</h3><p>Frammento pubblico non classificato. Presenza visibile, origine non verificata.</p></div><div class="tags"><span class="tag">rete</span><span class="tag">immagine</span></div></article>
-    <article class="card"><div><span class="code">RB-004-IRS</span><h3>Iris</h3><p>Funzione di archivio. Seleziona, trattiene, distorce, restituisce.</p></div><div class="tags"><span class="tag">interferenza</span><span class="tag">memoria</span></div></article>
-    <article class="card"><div><span class="code">RB-003-NOD</span><h3>Nodo attivo</h3><p>Area urbana con ricorrenze visive e segnali intermittenti. Osservazione parziale.</p></div><div class="tags"><span class="tag">mappa</span><span class="tag">bari</span></div></article>
-  </div>
-</section>
-
-<section class="content">
-  <div class="section-head">
-    <h2>Registro</h2>
-    <p>Sequenza minima degli eventi. Nessuna narrazione completa. Solo appunti, date e posizioni provvisorie.</p>
-  </div>
-  <div class="timeline">
-    <div class="time-row"><span>29.05.26</span><b>RB-025</b><span>Nessuna identificazione — traccia aperta</span><a href="nessuna-identificazione.html">[ dossier ]</a></div>
-    <div class="time-row"><span>25.05.26</span><b>RB-024</b><span>Influencer — frammento pubblico non classificato</span><a href="influencer.html">[ dossier ]</a></div>
-    <div class="time-row"><span>20.05.26</span><b>RB-023</b><span>Rumore — interferenza visiva a bassa intensità</span><a href="rumore.html">[ dossier ]</a></div>
-  </div>
-</section>
-
-<section id="trasmissione" class="content">
-  <div class="section-head">
-    <h2>Trasmissione</h2>
-    <p>Usare solo per lasciare una traccia. Il sistema non richiede identità, non promette risposta, non chiude il fascicolo.</p>
-  </div>
-  <form class="form" onsubmit="event.preventDefault();document.getElementById('msg').textContent='Traccia ricevuta. Identificazione non richiesta.'">
-    <input aria-label="Alias" placeholder="alias">
-    <input aria-label="Canale" placeholder="canale">
-    <select aria-label="Tipo segnalazione"><option>tipo segnalazione</option><option>immagine</option><option>video</option><option>testo</option><option>traccia</option></select>
-    <input aria-label="Luogo" placeholder="luogo / nodo">
-    <textarea aria-label="Messaggio" placeholder="messaggio"></textarea>
-    <button>Invia traccia</button>
-  </form>
-  <div id="msg"></div>
-</section>
-
-<footer>
-  <div>RISCHIO BASSO © 2026</div>
-  <div>Nessuna identificazione</div>
-</footer>
+<header class="topbar"><div class="brand">RISCHIO BASSO // ARCHIVIO CLANDESTINO</div><nav class="nav"><a class="active" href="#home">HOME</a><a href="dossier.html">DOSSIER</a><a href="#segnalazioni">SEGNALAZIONI</a><a href="#archivio">ARCHIVIO</a><a href="iris.html">IRIS</a></nav><div class="status"><span class="dot"></span><span>NODO ATTIVO</span></div></header>
+<main id="home" class="hero"><div class="hero-bg" aria-hidden="true"></div><div class="side-code"><span>RB / 23 / A</span><span>856</span></div><div class="hero-content"><h1>RISCHIO<br>BASSO</h1><div class="kicker">Archivio clandestino</div><div class="meta">NODO <span class="cursor"></span><br>BARI / OSSERVAZIONE PARZIALE<br>ORIGINE SCONOSCIUTA<br>_</div><div class="actions"><a class="action" href="dossier.html"><span>Apri dossier</span><span>[+]</span></a><a class="action" href="#segnalazioni"><span>Segnalazioni recenti</span><span>[+]</span></a></div></div><aside class="transmission"><div class="t-title">Trasmissione <span style="float:right">+</span></div><p>Invia una traccia. Identificazione non richiesta.</p><a href="#trasmissione" style="display:block;margin-top:20px;color:var(--accent)">→</a></aside>
+<div class="grid-bottom"><a class="panel-link" href="dossier.html"><article class="panel"><div class="panel-title"><span>Dossier attivi</span><span>+</span></div><div class="dossier-list"><span>RB-001 / Soggetto in movimento</span><span>RB-002 / Supporto rilevato</span><span>RB-003 / Nodo attivo</span><span>RB-004 / Iris</span></div><span class="view-all">Vedi tutti [+]</span></article></a><article class="panel"><div class="panel-title"><span>Mappa Bari</span><span>+</span></div><div class="map"><button class="node n1" onclick="mapNote('Murat / intervento registrato. Densità pedonale alta, esposizione controllata.')"><span>Murat</span></button><button class="node n2" onclick="mapNote('Libertà / soggetto in movimento. Nodo instabile, osservazione parziale.')"><span>Libertà</span></button><button class="node n3" onclick="mapNote('Madonnella / supporto rilevato. Traccia cartacea rimossa, alone ancora visibile.')"><span>Madonnella</span></button><button class="node n4" onclick="mapNote('Japigia / segnale basso. Margine urbano, passaggio laterale.')"><span>Japigia</span></button><button class="node n5" onclick="mapNote('Porto / trasmissione aperta. Origine non verificata.')"><span>Porto</span></button></div><div id="mapNote" class="map-note">Seleziona un nodo. Nessuna posizione è definitiva.</div></article><a class="panel-link" href="#segnalazioni"><article class="panel"><div class="panel-title"><span>Ultime segnalazioni</span><span>+</span></div><div class="signals"><div class="signal"><small>21.05.25 / 22:47</small>MADONNELLA<br>SUPPORTO RILEVATO</div><div class="signal"><small>21.05.25 / 20:11</small>LIBERTÀ<br>SOGGETTO IN MOVIMENTO</div><div class="signal"><small>21.05.25 / 18:32</small>MURAT<br>INTERVENTO REGISTRATO</div></div></article></a><a class="panel-link" href="#trasmissione"><article class="panel"><div class="panel-title"><span>Trasmissione aperta</span><span>+</span></div><div class="noisebox"></div><span class="view-all">Invia traccia [+]</span></article></a></div></main>
+<section id="archivio" class="content"><div class="section-head"><h2>Archivio</h2><p>Materiali non conclusivi: immagini, video, testi e residui raccolti senza garanzia di origine. Il sistema ordina le tracce, non le chiarisce.</p></div><div class="archive-grid"><a class="archive-tile" href="nessuna-identificazione.html"><div><div class="thumb"></div><small>RB-025-NID</small><br><b>Nessuna identificazione</b></div><span>video / volto / basso</span></a><a class="archive-tile" href="influencer.html"><div><div class="thumb"></div><small>RB-024-INF</small><br><b>Influencer</b></div><span>immagine / rete</span></a><a class="archive-tile" href="iris.html"><div><div class="thumb"></div><small>RB-004-IRS</small><br><b>Iris</b></div><span>interferenza / memoria</span></a><a class="archive-tile" href="#trasmissione"><div><div class="thumb"></div><small>RB-AUD-01</small><br><b>Trasmissione</b></div><span>audio / segnale</span></a><a class="archive-tile" href="rumore.html"><div><div class="thumb"></div><small>RB-023-RUM</small><br><b>Rumore</b></div><span>traccia / disturbo</span></a><a class="archive-tile" href="mappa.html"><div><div class="thumb"></div><small>RB-003-NOD</small><br><b>Nodo attivo</b></div><span>mappa / bari</span></a></div></section>
+<section class="content"><div class="section-head"><h2>Registro</h2><p>Sequenza minima degli eventi. Nessuna narrazione completa. Solo appunti, date e posizioni provvisorie.</p></div><div class="timeline"><div class="time-row"><span>29.05.26</span><b>RB-025</b><span>Nessuna identificazione — traccia aperta</span><a href="nessuna-identificazione.html">[ dossier ]</a></div><div class="time-row"><span>25.05.26</span><b>RB-024</b><span>Influencer — frammento pubblico non classificato</span><a href="influencer.html">[ dossier ]</a></div><div class="time-row"><span>20.05.26</span><b>RB-023</b><span>Rumore — interferenza visiva a bassa intensità</span><a href="rumore.html">[ dossier ]</a></div></div></section>
+<section id="trasmissione" class="content"><div class="section-head"><h2>Trasmissione</h2><p>Usare solo per lasciare una traccia. Il sistema non richiede identità, non promette risposta, non chiude il fascicolo.</p></div><form class="form" onsubmit="event.preventDefault();document.getElementById('msg').textContent='Traccia ricevuta. Identificazione non richiesta.'"><input aria-label="Alias" placeholder="alias"><input aria-label="Canale" placeholder="canale"><select aria-label="Tipo segnalazione"><option>tipo segnalazione</option><option>immagine</option><option>video</option><option>testo</option><option>traccia</option></select><input aria-label="Luogo" placeholder="luogo / nodo"><textarea aria-label="Messaggio" placeholder="messaggio"></textarea><button>Invia traccia</button></form><div id="msg"></div></section>
+<footer><div>RISCHIO BASSO © 2026</div><div>Nessuna identificazione</div></footer><script>function mapNote(t){document.getElementById('mapNote').textContent=t}</script>
 </body>
 </html>
