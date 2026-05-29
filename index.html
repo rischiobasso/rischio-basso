@@ -47,10 +47,10 @@ img{max-width:100%;display:block}
 }
 .hero-bg{
   position:absolute;inset:0;background-image:
-    linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.72) 23%,rgba(0,0,0,.25) 58%,rgba(0,0,0,.72) 100%),
-    linear-gradient(0deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.12) 50%,rgba(0,0,0,.72) 100%),
-    url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2200&q=85');
-  background-size:cover;background-position:center;filter:saturate(.78) contrast(1.05);transform:scale(1.01);
+    linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.72) 23%,rgba(0,0,0,.18) 58%,rgba(0,0,0,.68) 100%),
+    linear-gradient(0deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.10) 50%,rgba(0,0,0,.72) 100%),
+    url('hero-rb.png');
+  background-size:cover;background-position:center center;filter:saturate(.86) contrast(1.04) brightness(.96);transform:scale(1.005);
 }
 .side-code{position:absolute;left:16px;top:96px;bottom:28px;z-index:2;color:#6e665c;font-size:11px;display:flex;flex-direction:column;justify-content:space-between;opacity:.65}
 .side-code span{writing-mode:vertical-rl;text-orientation:mixed}
@@ -127,6 +127,7 @@ footer{padding:34px 5vw;border-top:1px solid var(--line);display:flex;justify-co
 @media(max-width:720px){
   .topbar{grid-template-columns:1fr auto;height:auto;min-height:54px;padding:10px 16px}.nav{display:none}.status{font-size:10px}
   .hero{padding:88px 20px 28px}h1{font-size:72px;letter-spacing:-3px}.meta{font-size:14px}
+  .hero-bg{background-position:center top}
   .grid-bottom{grid-template-columns:1fr}.panel{min-height:auto}.cards{grid-template-columns:1fr}.section-head{display:block}
   .time-row{grid-template-columns:1fr;gap:6px}.form{grid-template-columns:1fr}footer{display:grid;gap:12px}
 }
