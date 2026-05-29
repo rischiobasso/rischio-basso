@@ -3,263 +3,246 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RISCHIO BASSO</title>
-
+<title>RISCHIO BASSO // ARCHIVIO CLANDESTINO</title>
+<meta name="description" content="Archivio di segnali minimi, presenze laterali e interventi a bassa esposizione.">
 <style>
-*{box-sizing:border-box}
-
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050504;--fg:#e7e0d4;--muted:#9b9183;--line:rgba(231,224,212,.16);
+  --panel:rgba(5,5,4,.68);--panel2:rgba(18,15,12,.58);--accent:#c77722;--red:#9b3028;
+}
+html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:#050505;
-  color:#d8d8d8;
-  font-family:"Courier New",monospace;
-  overflow-x:hidden;
+  background:var(--bg);color:var(--fg);font-family:"Courier New",monospace;overflow-x:hidden;
 }
-
 body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:100% 4px;
-  pointer-events:none;
-  z-index:50;
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:80;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    radial-gradient(circle at 20% 10%,rgba(199,119,34,.08),transparent 32%),
+    radial-gradient(circle at 70% 60%,rgba(255,255,255,.04),transparent 30%);
+  background-size:100% 4px,100% 100%,100% 100%;
+  mix-blend-mode:screen;opacity:.55;
 }
-
-.glitch{
-  position:fixed;
-  inset:0;
-  background:url("iriscrt.jpeg") center/cover no-repeat;
-  opacity:0;
-  pointer-events:none;
-  mix-blend-mode:screen;
-  z-index:60;
-  animation:glitch 10s infinite;
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:79;opacity:.075;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
-
-@keyframes glitch{
-  0%,88%,100%{opacity:0;transform:translateX(0)}
-  89%{opacity:.14;transform:translateX(-8px)}
-  90%{opacity:.26;transform:translateX(7px)}
-  91%{opacity:.10;transform:translateX(-3px)}
-  92%{opacity:0}
-}
-
-a{color:#d8d8d8;text-decoration:none}
-a:hover{color:white}
-
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 .topbar{
-  height:34px;
-  padding:0 34px;
-  border-bottom:1px solid #222;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:12px;
-  color:#999;
+  position:fixed;top:0;left:0;right:0;height:54px;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;border-bottom:1px solid var(--line);background:rgba(0,0,0,.55);backdrop-filter:blur(10px);
+  padding:0 42px;color:var(--muted);font-size:13px;letter-spacing:1.5px;text-transform:uppercase
 }
-
-header{
-  padding:28px 44px;
-  border-bottom:1px solid #222;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#050505;
-  position:relative;
-  z-index:100;
-}
-
-.logo{
-  font-size:31px;
-  line-height:.95;
-  letter-spacing:4px;
-  font-weight:bold;
-}
-
-nav{display:flex;gap:18px}
-details{position:relative}
-summary{
-  list-style:none;
-  cursor:pointer;
-  border:1px solid #333;
-  background:#080808;
-  padding:13px 18px;
-  font-size:14px;
-  color:#d8d8d8;
-}
-summary::-webkit-details-marker{display:none}
-details[open] summary{background:#111}
-
-.dropdown{
-  position:absolute;
-  top:48px;
-  left:0;
-  min-width:245px;
-  background:#080808;
-  border:1px solid #333;
-  box-shadow:0 20px 40px rgba(0,0,0,.7);
-  z-index:300;
-}
-
-.dropdown a,.dropdown button{
-  display:block;
-  width:100%;
-  padding:14px 16px;
-  border:0;
-  border-bottom:1px solid #1d1d1d;
-  background:#080808;
-  color:#d8d8d8;
-  font-family:inherit;
-  font-size:13px;
-  text-align:left;
-  cursor:pointer;
-}
-.dropdown a:hover,.dropdown button:hover{background:#151515}
-
-.mobile-button{
-  display:none;
-  border:1px solid #333;
-  background:#080808;
-  color:#d8d8d8;
-  font-family:inherit;
-  padding:13px 18px;
-}
-.mobile-menu{
-  display:none;
-  padding:20px 24px;
-  background:#070707;
-  border-bottom:1px solid #222;
-  position:relative;
-  z-index:90;
-}
-.mobile-menu.open{display:block}
-.mobile-menu a,.mobile-menu button{
-  display:block;
-  width:100%;
-  padding:12px 0;
-  border:0;
-  background:none;
-  color:#d8d8d8;
-  font-family:inherit;
-  text-align:left;
-}
-
-main{padding:20px 54px 64px}
+.brand{justify-self:start;color:#d9d0c1}
+.nav{display:flex;gap:44px;justify-content:center}
+.nav a{opacity:.68;padding:18px 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a.active{opacity:1;border-bottom-color:var(--fg)}
+.status{justify-self:end;display:flex;gap:18px;align-items:center}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
 .hero{
-  display:grid;
-  grid-template-columns:1fr 1.05fr;
-  gap:64px;
-  align-items:start;
+  min-height:100vh;position:relative;display:grid;grid-template-columns:minmax(320px,520px) 1fr;align-items:center;
+  padding:84px 5vw 140px;overflow:hidden;background:#000;
 }
-h1{
-  font-size:58px;
-  line-height:.95;
-  letter-spacing:8px;
-  margin:0 0 26px;
+.hero-bg{
+  position:absolute;inset:0;background-image:
+    linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.72) 23%,rgba(0,0,0,.25) 58%,rgba(0,0,0,.72) 100%),
+    linear-gradient(0deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.12) 50%,rgba(0,0,0,.72) 100%),
+    url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2200&q=85');
+  background-size:cover;background-position:center;filter:saturate(.78) contrast(1.05);transform:scale(1.01);
 }
-.subtitle{max-width:560px;color:#bfbfbf;line-height:1.8}
-.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:38px}
-.action{
-  min-height:76px;
-  border:1px solid #333;
-  background:#080808;
-  color:#d8d8d8;
-  font-family:inherit;
-  padding:18px;
-  cursor:pointer;
-  text-align:left;
-  display:flex;
-  align-items:center;
+.side-code{position:absolute;left:16px;top:96px;bottom:28px;z-index:2;color:#6e665c;font-size:11px;display:flex;flex-direction:column;justify-content:space-between;opacity:.65}
+.side-code span{writing-mode:vertical-rl;text-orientation:mixed}
+.hero-content{position:relative;z-index:3;max-width:560px}
+.kicker{color:var(--accent);letter-spacing:6px;text-transform:uppercase;margin-bottom:28px;font-size:15px}
+h1{font-size:clamp(68px,10vw,138px);line-height:.78;letter-spacing:-5px;font-family:Impact,"Arial Black",sans-serif;text-transform:uppercase;color:#ded8cd;text-shadow:0 12px 40px rgba(0,0,0,.85)}
+.meta{margin-top:36px;color:#c0b7aa;font-size:18px;line-height:1.55;text-transform:uppercase;letter-spacing:1.5px}
+.cursor{display:inline-block;width:86px;height:10px;border:1px solid var(--line);margin:0 8px;position:relative;top:1px}
+.cursor:after{content:"";display:block;height:100%;width:48%;background:var(--fg);opacity:.35;animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{transform:translateX(0);opacity:.2}50%{transform:translateX(43px);opacity:.55}}
+.actions{margin-top:46px;display:grid;grid-template-columns:1fr;gap:12px;max-width:330px}
+.action{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);background:rgba(0,0,0,.42);padding:17px 20px;color:#d8d0c4;text-transform:uppercase;letter-spacing:1px;transition:.22s}
+.action:hover{background:rgba(199,119,34,.12);border-color:rgba(199,119,34,.55);transform:translateX(4px)}
+.transmission{
+  position:absolute;right:5vw;bottom:310px;z-index:4;width:min(430px,31vw);border:1px solid var(--line);
+  background:rgba(0,0,0,.48);backdrop-filter:blur(8px);padding:28px
 }
-.action:hover{background:#111}
-
-.last-signal{
-  margin-top:32px;
-  border:1px solid #333;
-  background:rgba(255,255,255,.018);
-  padding:22px;
-  max-width:560px;
+.transmission .t-title{color:#a99d8d;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.transmission p{color:#d4cabd;line-height:1.6}
+.grid-bottom{
+  position:absolute;left:5vw;right:5vw;bottom:42px;z-index:5;display:grid;grid-template-columns:1fr 1.15fr 1.05fr 1.05fr;gap:16px;
 }
-.last-signal small{color:#777;letter-spacing:1px}
-.last-signal h2{font-size:20px;letter-spacing:2px;margin:14px 0 10px;font-weight:normal}
-.last-signal p{color:#aaa;line-height:1.7;margin:0 0 16px}
-.last-signal a{border-bottom:1px solid #777;font-size:13px}
-
-.cam{position:relative;border:1px solid #333;overflow:hidden;background:#000}
-.cam img{width:100%;display:block;filter:grayscale(1) contrast(1.12) brightness(.72);animation:camglitch 7s infinite}
-@keyframes camglitch{0%,94%,100%{transform:translateX(0)}95%{transform:translateX(-3px)}96%{transform:translateX(4px)}}
-.cam:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 88%,rgba(255,255,255,.13) 90%);background-size:100% 7px;opacity:.25;pointer-events:none}
-.label,.rec,.time{position:absolute;background:rgba(0,0,0,.82);padding:9px 13px;z-index:5;font-size:13px}
-.label{top:16px;left:16px}.rec{top:16px;right:16px;color:#d64a3d}.time{right:16px;bottom:16px;line-height:1.5}
-
-.status-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:34px;margin-top:58px}
-.panel{border:1px solid #2b2b2b;padding:28px;background:rgba(255,255,255,.015)}
-.panel-title{margin-bottom:22px;letter-spacing:1px;color:#f0f0f0}
-.row{display:grid;grid-template-columns:110px 95px 1fr 110px;gap:18px;border-bottom:1px solid #222;padding:15px 0;font-size:13px}
-.code{color:#777}.state{color:#aaa}
-
-.nodes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
-.node{border:1px solid #252525;background:#070707;padding:16px;font-size:12px;line-height:1.6;color:#aaa}
-.node strong{display:block;color:#ddd;margin-bottom:6px}
-
-.audio{margin-top:58px;border-top:1px solid #222;padding-top:24px;display:flex;justify-content:space-between;align-items:center;color:#aaa;font-size:13px}
-.audio button{border:1px solid #333;background:#080808;color:#d8d8d8;font-family:inherit;padding:12px 18px;cursor:pointer}
-footer{border-top:1px solid #222;padding:28px 54px;color:#888;font-size:12px}
-
-@media(max-width:900px){
-  nav{display:none}.mobile-button{display:block}.topbar{padding:0 18px;font-size:10px}.topbar div:first-child{display:none}
-  header{padding:24px}main{padding:24px 22px 48px}.hero,.status-grid{grid-template-columns:1fr}
-  h1{font-size:42px;letter-spacing:5px}.actions,.nodes{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:6px}.audio{flex-direction:column;align-items:flex-start;gap:18px}
+.panel{border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(10px);min-height:210px;padding:22px;position:relative;overflow:hidden}
+.panel:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.035),transparent 45%);pointer-events:none}
+.panel-title{display:flex;justify-content:space-between;color:#8d8377;text-transform:uppercase;letter-spacing:1.6px;font-size:13px;margin-bottom:22px}
+.dossier-list{display:grid;gap:15px;font-size:14px;text-transform:uppercase;letter-spacing:.8px}
+.dossier-list a{color:#d6cec2}
+.dossier-list a:hover{color:var(--accent)}
+.view-all{position:absolute;left:22px;bottom:18px;color:#938a7e;font-size:13px;text-transform:uppercase}
+.map{height:145px;position:relative;border:1px solid rgba(255,255,255,.07);background:
+  linear-gradient(35deg,transparent 48%,rgba(255,255,255,.07) 49%,transparent 50%),
+  linear-gradient(120deg,transparent 48%,rgba(255,255,255,.045) 49%,transparent 50%),
+  radial-gradient(circle at 45% 45%,rgba(199,119,34,.08),transparent 45%);
+  background-size:50px 50px,70px 70px,100% 100%;opacity:.88
+}
+.node{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+.node span{position:absolute;left:11px;top:-7px;color:#bdb3a4;font-size:12px;text-transform:uppercase}
+.n1{left:42%;top:58%}.n2{left:24%;top:70%}.n3{left:55%;top:48%}.n4{left:70%;top:72%}.n5{left:49%;top:30%}
+.signals{display:grid;gap:12px;font-size:13px;color:#b8afa2;line-height:1.28}
+.signal small{display:block;color:#7d756b;margin-bottom:3px}
+.noisebox{height:118px;background:
+  repeating-radial-gradient(circle at 30% 30%,#ddd 0 1px,#111 1px 3px,#555 3px 4px);
+  opacity:.75;filter:contrast(1.3);margin-bottom:18px;animation:noiseMove .8s steps(2) infinite;
+}
+@keyframes noiseMove{0%{transform:translate(0)}50%{transform:translate(-2px,1px)}100%{transform:translate(1px,-1px)}}
+section.content{padding:92px 5vw;background:#060605;border-top:1px solid rgba(255,255,255,.08)}
+.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:34px}
+.section-head h2{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(44px,7vw,86px);letter-spacing:-2px;color:#d9d2c7;text-transform:uppercase}
+.section-head p{max-width:560px;color:#9f9588;line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{min-height:240px;border:1px solid var(--line);background:var(--panel2);padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(199,119,34,.5);background:rgba(22,17,12,.78)}
+.code{color:var(--accent);font-size:13px;letter-spacing:2px}
+.card h3{font-size:20px;line-height:1.1;text-transform:uppercase;margin:18px 0;color:#eee5d7}
+.card p{color:#a59b8e;line-height:1.55;font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.tag{border:1px solid rgba(255,255,255,.14);padding:5px 8px;color:#8f867a;font-size:11px;text-transform:uppercase}
+.timeline{display:grid;gap:12px;max-width:980px}
+.time-row{display:grid;grid-template-columns:140px 170px 1fr 110px;gap:18px;border-bottom:1px solid rgba(255,255,255,.1);padding:18px 0;color:#bdb4a8}
+.time-row b{color:#f0e8db;font-weight:normal;text-transform:uppercase}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:900px}
+.form input,.form select,.form textarea{background:#090807;border:1px solid var(--line);color:#e0d7ca;padding:16px;font-family:inherit}
+.form textarea{grid-column:1/-1;min-height:130px}
+.form button{grid-column:1/-1;background:rgba(199,119,34,.12);border:1px solid rgba(199,119,34,.55);color:#f0e6d8;padding:18px;font-family:inherit;text-transform:uppercase;letter-spacing:2px;cursor:pointer}
+.form button:hover{background:rgba(199,119,34,.22)}
+#msg{color:var(--accent);margin-top:18px;min-height:22px}
+footer{padding:34px 5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#7d756b;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;background:#030303}
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr;padding-top:110px;min-height:auto;padding-bottom:30px}
+  .transmission{position:relative;right:auto;bottom:auto;width:auto;margin:40px 0 0;z-index:3}
+  .grid-bottom{position:relative;left:auto;right:auto;bottom:auto;grid-template-columns:1fr 1fr;margin-top:34px}
+  .cards{grid-template-columns:1fr 1fr}.nav{gap:18px}.topbar{padding:0 18px}
+}
+@media(max-width:720px){
+  .topbar{grid-template-columns:1fr auto;height:auto;min-height:54px;padding:10px 16px}.nav{display:none}.status{font-size:10px}
+  .hero{padding:88px 20px 28px}h1{font-size:72px;letter-spacing:-3px}.meta{font-size:14px}
+  .grid-bottom{grid-template-columns:1fr}.panel{min-height:auto}.cards{grid-template-columns:1fr}.section-head{display:block}
+  .time-row{grid-template-columns:1fr;gap:6px}.form{grid-template-columns:1fr}footer{display:grid;gap:12px}
 }
 </style>
 </head>
 <body>
-<div class="glitch"></div>
-<div class="topbar"><div>RISCHIO BASSO // ARCHIVIO OPERATIVO</div><div>NODO: BARI / RETE URBANA // CONNESSIONE INSTABILE</div></div>
-<header>
-  <div class="logo">RISCHIO<br>BASSO</div>
-  <nav>
-    <details><summary>ARCHIVIO ▾</summary><div class="dropdown">
-      <a href="dossier.html">APRI DOSSIER</a><a href="iris.html">IRIS ADIRA</a><a href="runner.html">RUNNER / LUNGOMARE</a><a href="soggetto1.html">SOGGETTO 1</a><a href="aftermidnight.html">AFTER MIDNIGHT</a><a href="rumore.html">RUMORE</a><a href="cam01.html">CAM 01</a><a href="influencer.html">INFLUENCER</a><a href="nessuna-identificazione.html">NESSUNA IDENTIFICAZIONE</a>
-    </div></details>
-    <details><summary>SISTEMA ▾</summary><div class="dropdown"><a href="protocollo.html">PROTOCOLLO</a><a href="mappa.html">MAPPA NODI</a><a href="dossier.html#tracce">TRACCE</a></div></details>
-    <details><summary>SEGNALI ▾</summary><div class="dropdown"><button onclick="toggleAudio()">AUDIO INTERFERENZA</button><a href="https://www.instagram.com/rischio_basso" target="_blank">IG / RISCHIO_BASSO</a></div></details>
+<header class="topbar">
+  <div class="brand">RISCHIO BASSO // ARCHIVIO CLANDESTINO</div>
+  <nav class="nav">
+    <a class="active" href="#home">HOME</a>
+    <a href="dossier.html">DOSSIER</a>
+    <a href="#segnalazioni">SEGNALAZIONI</a>
+    <a href="#archivio">ARCHIVIO</a>
+    <a href="iris.html">IRIS</a>
   </nav>
-  <button class="mobile-button" onclick="toggleMobile()">MENU ☰</button>
+  <div class="status"><span class="dot"></span><span>NODO ATTIVO</span></div>
 </header>
-<div id="mobileMenu" class="mobile-menu">
-  <a href="dossier.html">> APRI DOSSIER</a><a href="protocollo.html">> PROTOCOLLO</a><a href="mappa.html">> MAPPA NODI</a><a href="iris.html">> IRIS ADIRA</a><a href="runner.html">> RUNNER / LUNGOMARE</a><a href="soggetto1.html">> SOGGETTO 1</a><a href="aftermidnight.html">> AFTER MIDNIGHT</a><a href="rumore.html">> RUMORE</a><a href="cam01.html">> CAM 01</a><a href="influencer.html">> INFLUENCER</a><a href="nessuna-identificazione.html">> NESSUNA IDENTIFICAZIONE</a><button onclick="toggleAudio()">> AUDIO INTERFERENZA</button><a href="https://www.instagram.com/rischio_basso" target="_blank">> IG</a>
-</div>
-<main>
-<section class="hero">
-  <div>
+
+<main id="home" class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="side-code"><span>RB / 23 / A</span><span>856</span></div>
+  <div class="hero-content">
     <h1>RISCHIO<br>BASSO</h1>
-    <div class="subtitle">Archivio non indicizzato di presenze minime, anomalie urbane e segnali a bassa intensità. Nessuna identità viene garantita. Nessuna verità viene confermata.</div>
-    <div class="actions"><a class="action" href="dossier.html">APRI<br>DOSSIER</a><a class="action" href="protocollo.html">LEGGI<br>PROTOCOLLO</a><button class="action" onclick="toggleAudio()">RILEVA<br>INTERFERENZA</button></div>
-    <div class="last-signal"><small>ULTIMO SEGNALE ACQUISITO // RB-025-NID</small><h2>NESSUNA IDENTIFICAZIONE</h2><p>Soggetto non confermato. Traccia aperta. Livello rischio: basso. Il volto non coincide con una identità disponibile.</p><a href="nessuna-identificazione.html">[ apri traccia ]</a></div>
+    <div class="kicker">Archivio clandestino</div>
+    <div class="meta">NODO <span class="cursor"></span><br>BARI / OSSERVAZIONE PARZIALE<br>ORIGINE SCONOSCIUTA<br>_</div>
+    <div class="actions">
+      <a class="action" href="dossier.html"><span>Apri dossier</span><span>[+]</span></a>
+      <a class="action" href="#segnalazioni"><span>Segnalazioni recenti</span><span>[+]</span></a>
+    </div>
   </div>
-  <div class="cam"><div class="label">CAM 07 // BARI - RETE URBANA</div><div class="rec">● REC</div><img src="cam_lungomare.png" alt="CAM Lungomare Bari"><div class="time">29.05.2026<br>nodo attivo</div></div>
-</section>
-<section class="status-grid">
-  <div class="panel"><div class="panel-title">// STATO SISTEMA</div><p>connessione: instabile</p><p>ultimo segnale rilevato: 29.05.2026</p><p>nodo: Bari / rete urbana</p><p>interferenze catalogate: 06</p><p>protocollo: osserva / registra / scompare</p></div>
-  <div class="panel"><div class="panel-title">// ULTIMI AVVISTAMENTI</div>
-    <div class="row"><div>29.05.26</div><div class="code">RB-025-NID</div><div>Nessuna identificazione — traccia aperta</div><a href="nessuna-identificazione.html">[ dossier ]</a></div>
-    <div class="row"><div>25.05.26</div><div class="code">RB-024-INF</div><div>Influencer — frammento pubblico non classificato</div><a href="influencer.html">[ dossier ]</a></div>
-    <div class="row"><div>20.05.26</div><div class="code">RB-020-RUN</div><div>Bari / Lungomare — registrazione casuale durante corsa</div><a href="runner.html">[ dossier ]</a></div>
-    <div class="row"><div>19.05.26</div><div class="code">RB-019-S01</div><div>Archivio interno — soggetto non collaborativo</div><a href="soggetto1.html">[ dossier ]</a></div>
-    <div class="row"><div>18.05.26</div><div class="code">RB-018-AM</div><div>After Midnight — traccia visiva non confermata</div><a href="aftermidnight.html">[ dossier ]</a></div>
-    <div class="row"><div>13.05.26</div><div class="code">RB-013-IR</div><div>Iris Adira — interferenza operativa</div><a href="iris.html">[ dossier ]</a></div>
+  <aside class="transmission">
+    <div class="t-title">Trasmissione <span style="float:right">+</span></div>
+    <p>Invia una traccia. Identificazione non richiesta.</p>
+    <a href="#trasmissione" style="display:block;margin-top:20px;color:var(--accent)">→</a>
+  </aside>
+  <div class="grid-bottom">
+    <article class="panel">
+      <div class="panel-title"><span>Dossier attivi</span><span>+</span></div>
+      <div class="dossier-list">
+        <a href="soggetto1.html">RB-001 / Soggetto in movimento</a>
+        <a href="#">RB-002 / Supporto rilevato</a>
+        <a href="mappa.html">RB-003 / Nodo attivo</a>
+        <a href="iris.html">RB-004 / Iris</a>
+      </div>
+      <a class="view-all" href="dossier.html">Vedi tutti [+]</a>
+    </article>
+    <article class="panel">
+      <div class="panel-title"><span>Mappa Bari</span><span>+</span></div>
+      <div class="map">
+        <div class="node n1"><span>Murat</span></div>
+        <div class="node n2"><span>Libertà</span></div>
+        <div class="node n3"><span>Madonnella</span></div>
+        <div class="node n4"><span>Japigia</span></div>
+        <div class="node n5"><span>Porto</span></div>
+      </div>
+    </article>
+    <article id="segnalazioni" class="panel">
+      <div class="panel-title"><span>Ultime segnalazioni</span><span>+</span></div>
+      <div class="signals">
+        <div class="signal"><small>21.05.25 / 22:47</small>MADONNELLA<br>SUPPORTO RILEVATO</div>
+        <div class="signal"><small>21.05.25 / 20:11</small>LIBERTÀ<br>SOGGETTO IN MOVIMENTO</div>
+        <div class="signal"><small>21.05.25 / 18:32</small>MURAT<br>INTERVENTO REGISTRATO</div>
+      </div>
+    </article>
+    <article class="panel">
+      <div class="panel-title"><span>Trasmissione aperta</span><span>+</span></div>
+      <div class="noisebox"></div>
+      <a class="view-all" href="#trasmissione">Invia traccia [+]</a>
+    </article>
   </div>
-</section>
-<div class="nodes"><div class="node"><strong>BARI / LUNGOMARE</strong>nodo visivo ad alta esposizione</div><div class="node"><strong>BARI / SAN PAOLO</strong>margine operativo non lineare</div><div class="node"><strong>RETE URBANA</strong>transiti, supporti, superfici</div><div class="node"><strong>NODO NON CONFERMATO</strong>posizione instabile / dato incompleto</div></div>
-<div class="audio"><div>AUDIO INTERFERENZA<br>canale CRT / riproduzione manuale</div><button id="audioButton" onclick="toggleAudio()">○ OFF</button><audio id="noise" loop><source src="crt_noise.mp3" type="audio/mpeg"></audio></div>
 </main>
-<footer>RISCHIO BASSO // archivio indipendente. Nessun dato viene indicizzato. Nessuna verità viene confermata.</footer>
-<script>
-function toggleMobile(){document.getElementById("mobileMenu").classList.toggle("open")}
-let playing=false;const audio=document.getElementById("noise");const button=document.getElementById("audioButton");
-function toggleAudio(){if(!playing){audio.volume=.22;audio.play();if(button){button.innerText="● ON"}playing=true}else{audio.pause();if(button){button.innerText="○ OFF"}playing=false}}
-</script>
+
+<section id="archivio" class="content">
+  <div class="section-head">
+    <h2>Archivio</h2>
+    <p>Materiali non conclusivi: immagini, video, testi e residui raccolti senza garanzia di origine. Il sistema ordina le tracce, non le chiarisce.</p>
+  </div>
+  <div class="cards">
+    <article class="card"><div><span class="code">RB-025-NID</span><h3>Nessuna identificazione</h3><p>Soggetto non confermato. Traccia aperta. Il volto non coincide con una identità disponibile.</p></div><div class="tags"><span class="tag">video</span><span class="tag">volto</span><span class="tag">basso</span></div></article>
+    <article class="card"><div><span class="code">RB-024-INF</span><h3>Influencer</h3><p>Frammento pubblico non classificato. Presenza visibile, origine non verificata.</p></div><div class="tags"><span class="tag">rete</span><span class="tag">immagine</span></div></article>
+    <article class="card"><div><span class="code">RB-004-IRS</span><h3>Iris</h3><p>Funzione di archivio. Seleziona, trattiene, distorce, restituisce.</p></div><div class="tags"><span class="tag">interferenza</span><span class="tag">memoria</span></div></article>
+    <article class="card"><div><span class="code">RB-003-NOD</span><h3>Nodo attivo</h3><p>Area urbana con ricorrenze visive e segnali intermittenti. Osservazione parziale.</p></div><div class="tags"><span class="tag">mappa</span><span class="tag">bari</span></div></article>
+  </div>
+</section>
+
+<section class="content">
+  <div class="section-head">
+    <h2>Registro</h2>
+    <p>Sequenza minima degli eventi. Nessuna narrazione completa. Solo appunti, date e posizioni provvisorie.</p>
+  </div>
+  <div class="timeline">
+    <div class="time-row"><span>29.05.26</span><b>RB-025</b><span>Nessuna identificazione — traccia aperta</span><a href="nessuna-identificazione.html">[ dossier ]</a></div>
+    <div class="time-row"><span>25.05.26</span><b>RB-024</b><span>Influencer — frammento pubblico non classificato</span><a href="influencer.html">[ dossier ]</a></div>
+    <div class="time-row"><span>20.05.26</span><b>RB-023</b><span>Rumore — interferenza visiva a bassa intensità</span><a href="rumore.html">[ dossier ]</a></div>
+  </div>
+</section>
+
+<section id="trasmissione" class="content">
+  <div class="section-head">
+    <h2>Trasmissione</h2>
+    <p>Usare solo per lasciare una traccia. Il sistema non richiede identità, non promette risposta, non chiude il fascicolo.</p>
+  </div>
+  <form class="form" onsubmit="event.preventDefault();document.getElementById('msg').textContent='Traccia ricevuta. Identificazione non richiesta.'">
+    <input aria-label="Alias" placeholder="alias">
+    <input aria-label="Canale" placeholder="canale">
+    <select aria-label="Tipo segnalazione"><option>tipo segnalazione</option><option>immagine</option><option>video</option><option>testo</option><option>traccia</option></select>
+    <input aria-label="Luogo" placeholder="luogo / nodo">
+    <textarea aria-label="Messaggio" placeholder="messaggio"></textarea>
+    <button>Invia traccia</button>
+  </form>
+  <div id="msg"></div>
+</section>
+
+<footer>
+  <div>RISCHIO BASSO © 2026</div>
+  <div>Nessuna identificazione</div>
+</footer>
 </body>
 </html>
