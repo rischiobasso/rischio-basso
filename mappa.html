@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAPPA NODI // RISCHIO BASSO</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050505;color:#d8d8d8;font-family:"Courier New",monospace}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:100% 4px;pointer-events:none}
+a{color:#d8d8d8;text-decoration:none}a:hover{color:white}
+header{padding:28px 44px;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;background:#050505}
+.logo{font-size:31px;line-height:.95;letter-spacing:4px;font-weight:bold}.back{border:1px solid #333;background:#080808;padding:13px 18px;font-size:14px}
+main{max-width:1120px;margin:auto;padding:52px 54px 76px}h1{font-size:56px;line-height:.95;letter-spacing:7px;margin:0 0 18px}.meta{color:#888;font-size:13px;margin-bottom:42px;line-height:1.7}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}.node{border:1px solid #333;background:#080808;padding:26px;min-height:190px}.code{color:#777;font-size:12px;letter-spacing:2px}.node h2{font-size:20px;font-weight:normal;letter-spacing:2px;margin:18px 0 14px}.node p{color:#aaa;line-height:1.8;margin:0}.status{margin-top:18px;color:#777;font-size:12px}.note{margin-top:38px;border:1px solid #333;background:#070707;padding:24px;color:#aaa;line-height:1.8;font-size:14px}footer{border-top:1px solid #222;padding:28px 54px;color:#777;font-size:12px}@media(max-width:850px){header{padding:24px}main{padding:34px 22px 58px}.grid{grid-template-columns:1fr}h1{font-size:42px;letter-spacing:5px}}
+</style>
+</head>
+<body>
+<header><div class="logo">RISCHIO<br>BASSO</div><a class="back" href="index.html">← ARCHIVIO</a></header>
+<main>
+<h1>MAPPA<br>NODI</h1>
+<div class="meta">Geografia provvisoria. Coordinate non esaustive. La mappa registra aree di interferenza, non itinerari turistici.</div>
+<section class="grid">
+<div class="node"><div class="code">NODE-01</div><h2>BARI / LUNGOMARE</h2><p>Area ad alta esposizione. Transito continuo. Superfici pubbliche, passaggi, corpi in movimento.</p><div class="status">stato: attivo</div></div>
+<div class="node"><div class="code">NODE-02</div><h2>BARI / SAN PAOLO</h2><p>Margine urbano. Distanza dal centro, presenza di muri estesi, segnali distribuiti.</p><div class="status">stato: osservazione</div></div>
+<div class="node"><div class="code">NODE-03</div><h2>RETE URBANA</h2><p>Supporti mobili, percorsi, fermate, schermi, attraversamenti. Il segnale non resta fermo.</p><div class="status">stato: instabile</div></div>
+<div class="node"><div class="code">NODE-XX</div><h2>NODO NON CONFERMATO</h2><p>Coordinate incomplete. Traccia presente, posizione non dichiarata. Nessuna verifica conclusa.</p><div class="status">stato: aperto</div></div>
+</section>
+<div class="note">La mappa non orienta. Registra. Ogni nodo può essere aggiornato, cancellato o smentito.</div>
+</main>
+<footer>RISCHIO BASSO // mappa incompleta</footer>
+</body>
+</html>
